@@ -39,12 +39,14 @@
 .navbar .navbar-link {
   position: relative;
   font-size: 0.9rem;
+  padding: 0.5rem;
   text-decoration: none;
   color: var(--navbar-link-color);
   color-scheme: light;  
   text-align: center;
   
-  transition: all 0.3s;
+  border: 1px solid transparent;
+  transition: all 0.4s;
 }
 
 .navbar .navbar-link.selected {
@@ -69,12 +71,12 @@
 .navbar .navbar-link:after {
   content: '';
   position: absolute;
-  width: 100%;
+  width: 50%;
   transform: scaleX(0);
-  top: 20px;
+  top: 33px;
   height: 1px;
   bottom: 0;
-  left: 0;
+  left: 25%;
   background: var(--navbar-link-hover-color);
   transform-origin: right left;
   transition: transform 0.25s ease-out;
