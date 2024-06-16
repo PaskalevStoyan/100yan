@@ -31,7 +31,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [shouldShowNavbar, currentScrollPosition, lastScrollPosition]);
 
-  // TODO: add onScroll event to hide / show the navbar
   return (
     <div className="App">
       <Navbar shouldShow={shouldShowNavbar} />

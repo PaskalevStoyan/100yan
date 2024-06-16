@@ -1,26 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./navbar.css";
+import { linksArray } from "../../utils";
 
-const linksArray = [
-  {
-    text: "About Me",
-    url: "#",
-    selected: true,
-  },
-  {
-    text: "Projects",
-    url: "#",
-    selected: false,
-  },
-  {
-    text: "Contacts",
-    url: "#",
-    selected: false,
-  },
-];
+type NavbarProps = {
+  shouldShow: boolean;
+};
 
-export const Navbar = (props: any) => {
+export const Navbar = (props: NavbarProps) => {
   const { shouldShow } = props;
 
   const [links, setLinks] = React.useState(linksArray);
@@ -41,7 +28,6 @@ export const Navbar = (props: any) => {
   };
   return (
     <>
-      (
       <div
         role="navigation"
         onClick={handleOnClick}
@@ -49,6 +35,7 @@ export const Navbar = (props: any) => {
       >
         {links.map((link, index) => (
           <a
+            aria-label={link.text}
             key={index}
             className={`${link.selected ? "selected" : null} navbar-link`}
             href="#"
@@ -57,7 +44,6 @@ export const Navbar = (props: any) => {
           </a>
         ))}
       </div>
-      )
     </>
   );
 };

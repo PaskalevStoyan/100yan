@@ -61,10 +61,10 @@
   position: absolute;
   width: 50%;
   transform: scaleX(1);
-  top: 33px;
+  top: 33.5px;
   height: 1px;
   bottom: 0;
-  left: 26%;
+  left: 25.5%;
   background: var(--navbar-link-hover-color);
 }
 
@@ -73,10 +73,10 @@
   position: absolute;
   width: 50%;
   transform: scaleX(0);
-  top: 33px;
+  top: 33.5px;
   height: 1px;
   bottom: 0;
-  left: 25%;
+  left: 25.5%;
   background: var(--navbar-link-hover-color);
   transform-origin: right left;
   transition: transform 0.25s ease-out;
