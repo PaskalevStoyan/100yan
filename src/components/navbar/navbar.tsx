@@ -6,19 +6,19 @@ export const Navbar = (props: any) => {
 
   return (
     <>
-      {shouldShow && (
-        <div className="navbar">
-          <a className="navbar-link selected" href="#">
-            About Me
-          </a>
-          <a className="navbar-link" href="#">
-            Projects
-          </a>
-          <a className="navbar-link" href="#">
-            Contacts
-          </a>
-        </div>
-      )}
+      (
+      <div className={`${shouldShow ? "show" : "hide"} navbar`}>
+        <a className="navbar-link selected" href="#">
+          About Me
+        </a>
+        <a className="navbar-link" href="#">
+          Projects
+        </a>
+        <a className="navbar-link" href="#">
+          Contacts
+        </a>
+      </div>
+      )
     </>
   );
 };
