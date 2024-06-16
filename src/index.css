@@ -1,6 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  --main-color: #dbd8e3;
-  --secondary-color: #5c5470;
-  --third-color: #352f44;
-  --fourth-color: #2a2438;
+  --navbar-bg-color: #c6c5c514;
+  --navbar-border-color: #c6c5c587;
+  --navbar-link-color: rgba(82, 82, 82);
+  --navbar-link-hover-color: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
+  --navbar-link-hover-bg-color: #c6c5c514;
+
+}
+
+body {
+  font-family: 'Inter';
 }
