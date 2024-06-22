@@ -5,14 +5,19 @@
 }
 
 :root {
+  --tetradic-color: #0C678E;
+  --primary-color: #268E0C;
+  --secondary-color: #0c268e;
+  --tertiary-color: #8E0C26;
+  
   --navbar-bg-color: #ffffff;
   --navbar-border-color: #c6c5c587;
   --navbar-link-color: rgba(82, 82, 82);
-  --navbar-link-hover-color: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
+  --navbar-link-hover-border-color: var(--primary-color);
   --navbar-link-hover-bg-color: #c6c5c514;
-
+  
 }
 
 body {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
 }

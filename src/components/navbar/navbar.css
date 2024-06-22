@@ -4,9 +4,6 @@
   left: 50%;
   max-width: fit-content;
 
-  transform: translateX(-50%);
-
-
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -50,7 +47,6 @@
 }
 
 .navbar .navbar-link.selected {
-  color: var(--navbar-link-hover-color);
   padding: 0.5rem;
   border: 1px solid var(--navbar-border-color);
   border-radius: 9999px;
@@ -61,11 +57,11 @@
   position: absolute;
   width: 50%;
   transform: scaleX(1);
-  top: 33.5px;
+  top: 33.4px;
   height: 1px;
   bottom: 0;
   left: 25.5%;
-  background: var(--navbar-link-hover-color);
+  background: var(--navbar-link-hover-border-color);
 }
 
 .navbar .navbar-link:after {
@@ -73,22 +69,23 @@
   position: absolute;
   width: 50%;
   transform: scaleX(0);
-  top: 33.5px;
+  top: 33.4px;
   height: 1px;
   bottom: 0;
   left: 25.5%;
-  background: var(--navbar-link-hover-color);
+  background: var(--navbar-link-hover-border-color);
   transform-origin: right left;
   transition: transform 0.25s ease-out;
-}
-
-.navbar .navbar-link:hover {
-  color: var(--navbar-link-hover-color);
 }
 
 .navbar .navbar-link:not(.navbar-link.selected):hover:after {
   transform: scaleX(1);
   transform-origin: left right;
+}
 
+.logo {
+  width: 110px;
+  height: 37px;
+  margin-right: 3rem;
 }
 
