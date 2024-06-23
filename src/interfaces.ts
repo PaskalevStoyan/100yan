@@ -6,6 +6,6 @@ export type Links = {
 
 export type CardInfo = {
   title: string;
-  text: string;
+  text: Array<string>;
   selected: boolean;
 };
