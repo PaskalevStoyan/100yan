@@ -132,10 +132,15 @@
 }
 
 .card-heading {
+  position: relative;
   display: flex;
   gap: 5px;
   align-items: center;
   cursor: pointer;
+}
+
+.card-heading[data-content="Career Path"] {
+  justify-content: space-between;
 }
 
 .card-heading h2 {
@@ -156,9 +161,6 @@
 }
 
 .show-tech {
-  padding-left: 0.5rem;
-  border-left: 1px solid #000;
-
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -168,7 +170,7 @@
 }
 
 .show-tech-text {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-align: center;
 }
 
@@ -343,7 +345,83 @@
   transition: all 0.3s;
 }
 
+/* TECH ICONS */
+
+.show-tech-container {
+  opacity: 0;
+  visibility: hidden;
+
+  position: absolute;
+  top: -50px;
+  left: 40%;
+
+  max-width: 400px;
+  transition: all 0.8s;
+}
+
+.tech-icons-wrapper {
+  width: 400px;
+
+}
+
+.show-tech:hover .show-tech-container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.icon-label-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: -38px;
+  left: 0px;
+  padding: 0.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 9999px;
+
+  transition: all 0.3s;
+}
+
+.tech-icon:hover .icon-label-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.icon-label-text::after {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  top: 87%;
+  left: 43%;
+  background: var(--primary-color);
+  content: "";
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.show-label {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hide-label {
+  visibility: hidden;
+  opacity: 0;
+}
+
 /* ANIMATIONS */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(8 - 1) * 100%);
+  }
+}
+
 @keyframes typing {
   from {
     width: 0

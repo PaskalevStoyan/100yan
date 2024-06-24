@@ -2,9 +2,12 @@ import React from "react";
 import "./showcase.css";
 
 import { cardsInfo, findParent } from "../../utils";
+import { CardInfo } from "../../interfaces";
+import { ShowTechIcons } from "./show-tech-icons";
 
 const RightArrow = () => <span className="arrow-right"></span>;
 
+// Render Paragraph Text as they contain <span> tags
 const renderParagraphText = (text: string, title: string) => {
   const regex = /<span className="text-highlight">.*?<\/span>/;
 
@@ -40,16 +43,17 @@ const renderParagraphText = (text: string, title: string) => {
 };
 export const Showcase = (props: any) => {
   const [cards, setCards] = React.useState(
-    /*JSON.parse(localStorage.getItem("selectedCard") as string) ??*/ cardsInfo
+    JSON.parse(localStorage.getItem("selectedCard") as string) ?? cardsInfo
   );
-  const [selectedText, setSelectedText] = React.useState({
+  const [selectedText, setSelectedText] = React.useState<any>({
     "About Me": 0,
     "Career Path": 0,
-    Hobbies: 0,
+    "Hobbies": 0,
   });
 
   const currentCard = cards.find((card: any) => card.selected);
 
+  // Change Card Animation
   const onCardClick = (event: any) => {
     const target = event.target;
     const newSelectedCard = findParent(target);
@@ -98,19 +102,15 @@ export const Showcase = (props: any) => {
     }
   };
 
+  // Go back and Learn more buttons
   const changeText = (event: any) => {
-    const target = event.target;
-    const currentCard: any = cards.find((card: any) => card.selected);
+    const target: HTMLElement = event.target;
+    const currentCard: CardInfo = cards.find(
+      (card: any) => card.selected
+    ) as CardInfo;
+    const selectedTextIndex = selectedText[currentCard.title] as any;
 
-    console.log(currentCard);
-    const selectedTextIndex = selectedText[currentCard.title];
-    console.log(
-      selectedTextIndex,
-      currentCard.text.length,
-      selectedTextIndex < currentCard.text.length - 1
-    );
-
-    if (target.innerText === "Next") {
+    if (target.innerText === "Learn more") {
       if (selectedTextIndex < currentCard.text.length - 1) {
         setSelectedText({
           ...selectedText,
@@ -122,7 +122,7 @@ export const Showcase = (props: any) => {
           [currentCard.title]: 0,
         });
       }
-    } else if (target.innerText === "Prev") {
+    } else if (target.innerText === "Go back") {
       if (selectedTextIndex > 0) {
         setSelectedText({
           ...selectedText,
@@ -137,6 +137,13 @@ export const Showcase = (props: any) => {
     }
   };
 
+  const hideTechLabel = () => {
+    const getLabelText = document.querySelector(".icon-label-text");
+
+    if (getLabelText) {
+      getLabelText.classList.remove("show-label");
+    }
+  }
   return (
     <div className="showcase">
       <div className="showcase-introduction">
@@ -164,12 +171,13 @@ export const Showcase = (props: any) => {
                   card.selected ? "selected-card" : ""
                 }`}
               >
-                <div className="card-heading">
+                <div className="card-heading" data-content={card.title}>
                   <h2>{card.title}</h2>
                   {card.title === "Career Path" && card.selected ? (
-                    <span className="show-tech">
+                    <span onMouseLeave={hideTechLabel} className="show-tech">
                       <span className="show-tech-text">
                         Hover for Technologies
+                        <ShowTechIcons />
                       </span>
                     </span>
                   ) : null}
@@ -179,7 +187,7 @@ export const Showcase = (props: any) => {
                 <div className="card-paragraph">
                   <>
                     {renderParagraphText(
-                      card.text[selectedText[card.title]],
+                      card.text[selectedText[card.title as string]] as any,
                       card.title
                     )}
                   </>
@@ -187,10 +195,10 @@ export const Showcase = (props: any) => {
                 {currentCard?.text.length! > 1 ? (
                   <div className="card-buttons">
                     <button onClick={changeText} className="card-button">
-                      Prev
+                      Go back
                     </button>
                     <button onClick={changeText} className="card-button">
-                      Next
+                      Learn more
                     </button>
                   </div>
                 ) : null}
