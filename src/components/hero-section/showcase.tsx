@@ -137,13 +137,30 @@ export const Showcase = (props: any) => {
     }
   };
 
-  const hideTechLabel = () => {
-    const getLabelText = document.querySelector(".icon-label-text");
+  const removeIconAnimation = () => {
+    const icons = Array.from(document.querySelectorAll(".tech-icon"));
 
-    if (getLabelText) {
-      getLabelText.classList.remove("show-label");
+    if (icons.length > 0) {
+      icons.forEach((icon: any) => {
+        icon.classList.remove("fade-in");
+        icon.classList.add("fade-out");
+        setTimeout(() => {
+          icon.classList.remove("fade-out");
+        }, 1100);
+      });
     }
-  }
+  };
+
+  const showIconAnimation = () => {
+    const icons = Array.from(document.querySelectorAll(".tech-icon"));
+
+    if (icons.length > 0) {
+      icons.forEach((icon: any) => {
+        icon.classList.add("fade-in");
+      });
+    }
+  };
+
   return (
     <div className="showcase">
       <div className="showcase-introduction">
@@ -174,7 +191,11 @@ export const Showcase = (props: any) => {
                 <div className="card-heading" data-content={card.title}>
                   <h2>{card.title}</h2>
                   {card.title === "Career Path" && card.selected ? (
-                    <span onMouseLeave={hideTechLabel} className="show-tech">
+                    <span
+                      onMouseEnter={showIconAnimation}
+                      onMouseLeave={removeIconAnimation}
+                      className="show-tech"
+                    >
                       <span className="show-tech-text">
                         Hover for Technologies
                         <ShowTechIcons />
