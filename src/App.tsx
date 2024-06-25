@@ -4,6 +4,7 @@ import "./App.css";
 import { Showcase } from "./components/hero-section/showcase";
 import { Container } from "./components/container/container";
 import { ProjectSection } from "./components/projects-section/projects";
+import { ShowTechIcons } from "./components/tech-icons/tech-icons";
 
 function App() {
   const [shouldShowNavbar, setShouldShowNavbar] = React.useState(true);
@@ -37,6 +38,7 @@ function App() {
       <Navbar shouldShow={shouldShowNavbar} />
       <Container>
         <Showcase />
+        <ShowTechIcons />
         <ProjectSection />
       </Container>
     </div>

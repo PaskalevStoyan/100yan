@@ -1,5 +1,6 @@
 import React from "react";
-import "./showcase.css";
+
+import "./tech-icons.css";
 
 export const ShowTechIcons = () => {
   const icons = [
@@ -11,19 +12,18 @@ export const ShowTechIcons = () => {
     'HTML5',
     'CSS3',
     'Bootstrap',
-    'Tailwind CSS',
+    'TailwindCSS',
     'git',
     'Jest',
     'npm',
   ]
 
   return (
-    <div className="show-tech-container">
+    <div className="tech-icons-container">
+      <h2 className="tech-icons-title">My Building Tools</h2>
       <div className="tech-icons-wrapper">
         {icons.map((icon, index) => (
-           <span icon-index={index} title={icon} className="tech-icon">
-           <span title={icon}></span>
-         </span>
+           <span key={icon} className={`${icon}-icon tech-icon`} icon-index={index} title={icon}></span>
         ))}
       </div>
     </div>

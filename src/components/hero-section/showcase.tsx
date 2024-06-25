@@ -3,7 +3,7 @@ import "./showcase.css";
 
 import { cardsInfo, findParent } from "../../utils";
 import { CardInfo } from "../../interfaces";
-import { ShowTechIcons } from "./show-tech-icons";
+// import { ShowTechIcons } from "../tech-icons/show-tech-icons";
 
 const RightArrow = () => <span className="arrow-right"></span>;
 
@@ -48,7 +48,7 @@ export const Showcase = (props: any) => {
   const [selectedText, setSelectedText] = React.useState<any>({
     "About Me": 0,
     "Career Path": 0,
-    "Hobbies": 0,
+    Hobbies: 0,
   });
 
   const currentCard = cards.find((card: any) => card.selected);
@@ -137,32 +137,6 @@ export const Showcase = (props: any) => {
     }
   };
 
-  // removes fade-in class from icon and sets fade-out
-  const removeIconAnimation = () => {
-    const icons = Array.from(document.querySelectorAll(".tech-icon"));
-
-    if (icons.length > 0) {
-      icons.forEach((icon: any) => {
-        icon.classList.remove("fade-in");
-        icon.classList.add("fade-out");
-        setTimeout(() => {
-          icon.classList.remove("fade-out");
-        }, 1500);
-      });
-    }
-  };
-
-  // adds fade-in class to icon
-  const showIconAnimation = () => {
-    const icons = Array.from(document.querySelectorAll(".tech-icon"));
-
-    if (icons.length > 0) {
-      icons.forEach((icon: any) => {
-        icon.classList.add("fade-in");
-      });
-    }
-  };
-
   return (
     <div className="showcase" id="AboutMe">
       <div className="showcase-introduction">
@@ -192,19 +166,6 @@ export const Showcase = (props: any) => {
               >
                 <div className="card-heading" data-content={card.title}>
                   <h2>{card.title}</h2>
-                  {card.title === "Career Path" && card.selected ? (
-                    <span
-                      onMouseEnter={showIconAnimation}
-                      onMouseLeave={removeIconAnimation}
-                      className="show-tech"
-                    >
-                      <span className="show-tech-text">
-                        Hover for Technologies
-                        <ShowTechIcons />
-                      </span>
-                    </span>
-                  ) : null}
-
                   {card.selected ? null : <RightArrow />}
                 </div>
                 <div className="card-paragraph">
