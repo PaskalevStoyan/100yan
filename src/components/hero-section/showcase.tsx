@@ -146,7 +146,7 @@ export const Showcase = (props: any) => {
         icon.classList.add("fade-out");
         setTimeout(() => {
           icon.classList.remove("fade-out");
-        }, 1100);
+        }, 1500);
       });
     }
   };
