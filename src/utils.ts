@@ -6,17 +6,17 @@ export const linksArray: Array<Links> = [
   },
   {
     text: "About Me",
-    url: "#",
+    url: "#AboutMe",
     selected: true,
   },
   {
     text: "Projects",
-    url: "#",
+    url: "#Projects",
     selected: false,
   },
   {
     text: "Contacts",
-    url: "#",
+    url: "#Contacts",
     selected: false,
   },
 ];

@@ -137,6 +137,7 @@ export const Showcase = (props: any) => {
     }
   };
 
+  // removes fade-in class from icon and sets fade-out
   const removeIconAnimation = () => {
     const icons = Array.from(document.querySelectorAll(".tech-icon"));
 
@@ -151,6 +152,7 @@ export const Showcase = (props: any) => {
     }
   };
 
+  // adds fade-in class to icon
   const showIconAnimation = () => {
     const icons = Array.from(document.querySelectorAll(".tech-icon"));
 
@@ -162,7 +164,7 @@ export const Showcase = (props: any) => {
   };
 
   return (
-    <div className="showcase">
+    <div className="showcase" id="AboutMe">
       <div className="showcase-introduction">
         <h2 className="showcase-mid-headings">Hello Wanderer!</h2>
         <h1 className=" typewriter typing-demo showcase-big-heading">

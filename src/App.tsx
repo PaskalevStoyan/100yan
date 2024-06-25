@@ -3,6 +3,7 @@ import { Navbar } from "./components/navbar/navbar";
 import "./App.css";
 import { Showcase } from "./components/hero-section/showcase";
 import { Container } from "./components/container/container";
+import { ProjectSection } from "./components/projects-section/projects";
 
 function App() {
   const [shouldShowNavbar, setShouldShowNavbar] = React.useState(true);
@@ -36,16 +37,7 @@ function App() {
       <Navbar shouldShow={shouldShowNavbar} />
       <Container>
         <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
-        <Showcase />
+        <ProjectSection />
       </Container>
     </div>
   );
