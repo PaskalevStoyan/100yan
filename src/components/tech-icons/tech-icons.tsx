@@ -16,6 +16,7 @@ export const ShowTechIcons = () => {
     'git',
     'Jest',
     'npm',
+    "firebase"
   ]
 
   return (

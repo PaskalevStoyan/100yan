@@ -24,9 +24,20 @@
 }
 
 .tech-icons-title {
+  position: relative;
   flex: 1 1 70%;
   font-size: 3.25rem;
-  color: var(--tetradic-color)
+  color: var(--high-contrast-text-primary)
+}
+
+.tech-icons-title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 15%;
+  width: 191px;
+  height: 2px;
+  background-color: var(--solid-borders-and-separators);
 }
 
 .tech-icon, .tech-icon-name {
@@ -86,6 +97,11 @@
 
 .TailwindCSS-icon {
   background-image: url("../../icons/icons8-tailwind-css-48.png");
+  animation-delay: calc(15s / 12 * (12 - 7) * -1);
+}
+
+.firebase-icon {
+  background-image: url("../../icons/icons8-firebase-48.png");
   animation-delay: calc(15s / 12 * (12 - 7) * -1);
 }
 

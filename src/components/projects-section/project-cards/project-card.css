@@ -2,17 +2,26 @@
 .card-container {
   perspective: 50em;
   padding-bottom: 3rem;
-  
 }
 
 .card {
   position: relative;
   width: 350px;
   padding: 3em;
-  color: #000;
+  color: var(--high-contrast-text-primary);
   transform: rotateY(30deg) rotateX(15deg);
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 0.5s;
+}
+
+.project-name {
+  color: var(--high-contrast-text-primary);
+  font-size: 1.75rem;
+}
+
+.project-desc {
+  color: var(--high-contrast-text-secondary);
+  font-size: 0.9rem;
 }
 
 .card:hover {
@@ -33,9 +42,9 @@
   width: 100%;
   height: 350px;
   border-radius: 1em;
-  background-image: repeating-linear-gradient(-50deg, var(--primary-color) 16em 5.25em, #f000 23em 1em);
+  background-image: repeating-linear-gradient(-50deg, #d8f4f609 5em 6.25em, #f000 10em 1em);
+  backdrop-filter: blur(64px);
   transform: translateZ(var(--tz));
-  box-shadow: 0 0 0.5em #000d inset;
 }
 
 .layer:nth-child(1) {
@@ -69,31 +78,27 @@
   --tz: -36px;
 }
 
-.layer:last-child {
-  box-shadow: 0 0 0.5em #000d inset, 0 0 5px #000;
-}
-
 .card-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  gap: 2rem;
+  gap: 4rem;
 }
 .card-btn {
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-size: 0.9rem;
+  
+  padding: 0.5rem 0.85rem;
+  background-color: var(--background-color);
 
-  transition: all 0.3s ease-in;
-  transition-delay: 0.1s;
+  color: var(--high-contrast-text-secondary);
+  border: 1px solid var(--borders-and-separators-selected);
+  border-radius: 5px;
+
+  transition: all 0.5s;
 }
 
 .card-btn:hover {
-  background-color: var(--secondary-color);
-  color: #f3f3f3;
+  color: var(--high-contrast-text-primary);
   transform: scale(1.1)
 }

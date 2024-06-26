@@ -11,8 +11,10 @@ function App() {
   const [currentScrollPosition, setCurrentScrollPosition] = React.useState(0);
   const [lastScrollPosition, setLastScrollPosition] = React.useState(0);
 
+  const [selectedLink, setSelectedLink] = React.useState(1);
+  
   React.useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (event: any) => {
       setCurrentScrollPosition(window.scrollY);
 
       if (currentScrollPosition > lastScrollPosition) {
@@ -25,6 +27,14 @@ function App() {
         }, 100);
       }
 
+      if (window.scrollY < 1000) { 
+        setSelectedLink(1);
+      } else if (window.scrollY > 1000) { 
+        setSelectedLink(2);
+      } else {
+        setSelectedLink(3);
+      }
+
       setLastScrollPosition(currentScrollPosition);
     };
 
@@ -35,7 +45,10 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar shouldShow={shouldShowNavbar} />
+      <div className="color-box-wrapper">
+        <div className="color-box"></div>
+      </div>
+      <Navbar scrollSelected={selectedLink} shouldShow={shouldShowNavbar} />
       <Container>
         <Showcase />
         <ShowTechIcons />

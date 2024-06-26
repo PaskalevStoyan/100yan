@@ -8,9 +8,9 @@ export const ProjectCard = () => {
       <div className="card">
         <div className="card-info">
           <div className="card-text">
-            <h3>Hover Me</h3>
+            <h3 className="project-name">Hover Me</h3>
             <br />
-            <p>
+            <p className="project-desc">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis nesciunt repudiandae officia repellat voluptates
               adipisci consectetur magnam? Repellat, repellendus hic?

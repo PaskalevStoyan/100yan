@@ -144,8 +144,8 @@ export const Showcase = (props: any) => {
         <h1 className=" typewriter typing-demo showcase-big-heading">
           My name is{" "}
           <span className="name-text">
-            <span className="name text-highlight">Stoyan</span>
-            <span className=" name text-highlight surname">Paskalev.</span>
+            <span className="name highlight-name">Stoyan</span>
+            <span className=" name highlight-name surname">Paskalev.</span>
           </span>
         </h1>
         <p className="showcase-paragraph paragraph">

@@ -1,0 +1,9 @@
+.color-box {
+  background-image: linear-gradient(to bottom, #2d4176, transparent);
+  width: 100%;
+  height: 500px;
+}
+
+.App {
+ background-color: #272935;
+}

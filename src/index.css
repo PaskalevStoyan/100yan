@@ -6,20 +6,24 @@
 
 :root {
   --tetradic-color: #0C678E;
-  --primary-color: #268E0C;
+  --logo-primary-color: #268E0C;
   --secondary-color: #0c268e;
   --tertiary-color: #8E0C26;
   
-  --navbar-bg-color: #ffffff;
-  --navbar-border-color: #c6c5c587;
-  --navbar-link-color: rgba(82, 82, 82);
-  --navbar-link-hover-border-color: var(--primary-color);
-  --navbar-link-hover-bg-color: #c6c5c514;
-  
+  --high-contrast-text-primary: #EEEEF0;
+  --high-contrast-text-secondary: #B5B6C0;
+  --borders-and-separators: #393A40;
+  --borders-and-separators-selected: #5F606A;
+  --interactive-components: #3C3D41;
+  --background-color: #303032;
+
+  --solid-borders-and-separators: #405EB2;
+  --solid-color: #3D63DD;  
 }
 
 body {
   font-family: 'Inter', sans-serif;
+  color: var(--high-contrast-text-primary)
 }
 
 html {

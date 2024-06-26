@@ -11,11 +11,12 @@
 
   z-index: 5000;
 
-  background-color: var(--navbar-bg-color);
+  background-color: var(--background-color);
+
   gap: 30px;
 
   /* nav border */
-  border-color: var(--navbar-border-color);
+  border-color: var(--borders-and-separators);
   border-width: 1px;
   border-style: solid;
   border-radius: 50px;
@@ -38,7 +39,8 @@
   font-size: 0.9rem;
   padding: 0.5rem;
   text-decoration: none;
-  color: var(--navbar-link-color);
+  color: var(--high-contrast-text-secondary);
+
   color-scheme: light;  
   text-align: center;
   
@@ -48,8 +50,9 @@
 
 .navbar .navbar-link.selected {
   padding: 0.5rem;
-  border: 1px solid var(--navbar-border-color);
+  border: 1px solid var(--borders-and-separators-selected);
   border-radius: 9999px;
+  color: var(--high-contrast-text-primary);
 }
 
 .navbar .navbar-link.selected::after {
@@ -61,7 +64,6 @@
   height: 1px;
   bottom: 0;
   left: 25.5%;
-  background: var(--navbar-link-hover-border-color);
 }
 
 .navbar .navbar-link:after {
@@ -73,7 +75,7 @@
   height: 1px;
   bottom: 0;
   left: 25.5%;
-  background: var(--navbar-link-hover-border-color);
+  background: var(--solid-borders-and-separators);
   transform-origin: right left;
   transition: transform 0.25s ease-out;
 }
