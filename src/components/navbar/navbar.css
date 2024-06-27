@@ -46,6 +46,7 @@
   
   border: 1px solid transparent;
   transition: all 0.4s;
+  cursor: pointer;
 }
 
 .navbar .navbar-link.selected {

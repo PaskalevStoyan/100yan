@@ -16,6 +16,19 @@ export const Navbar = (props: NavbarProps) => {
   const handleOnClick = (event: any) => {
     const target = event.target;
 
+    const getSection = document.querySelector(
+      `#${target.innerText.replace(" ", "")}`
+    );
+
+    if (getSection) {
+      const getSectionY = getSection.getBoundingClientRect().y;
+      const scrollHeight = target.innerText === "About Me" ? 0 : getSectionY - 200;
+      window.scrollTo({
+        top: scrollHeight,
+        behavior: "smooth",
+      });
+    }
+
     if (target.classList.contains("navbar-link")) {
       const currentSelected = links.map((link) => {
         return {
@@ -53,7 +66,7 @@ export const Navbar = (props: NavbarProps) => {
           return (
             <svg
               className="logo"
-              key={index}
+              key={link.text}
               viewBox="0 0 146 37"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -74,13 +87,13 @@ export const Navbar = (props: NavbarProps) => {
           );
         }
         return (
-          <a
-            key={index}
-            href={link.url}
+          <span
+            aria-label={link.text}
+            key={link.text}
             className={`navbar-link ${link.selected ? "selected" : ""}`}
           >
             {link.text}
-          </a>
+          </span>
         );
       })}
     </div>

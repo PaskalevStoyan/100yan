@@ -1,3 +1,12 @@
+.projects-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  /* overflow: hidden; */
+}
 
 .projects {
   display: flex;
@@ -5,4 +14,46 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10rem;
+}
+
+.projects-text {
+  font-size: 3rem;
+}
+
+.projects-desc {
+  position: relative;
+  color: var(--high-contrast-text-secondary)
+}
+
+.projects-desc::before {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 24.5%;
+  width: 30px;
+  height: 2px;
+  background-color: var(--solid-borders-and-separators);
+}
+
+.projects-desc::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 38.6%;
+  width: 30px;
+  height: 2px;
+  background-color: var(--solid-borders-and-separators);
+}
+
+.projects-gradient {
+  position: absolute;
+  top: -20%;
+  width: 100vw;
+  height: 200px;
+
+  background: linear-gradient(to top,
+      transparent,
+      #2d4176 6%,
+      #272935 80%,
+      transparent)
 }

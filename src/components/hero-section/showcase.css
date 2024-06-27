@@ -37,7 +37,7 @@
 }
 
 .highlight-name {
-  color: var(--logo-primary-color);
+  color: var(--solid-h-c-text-primary);
 }
 .text-highlight {
   color: var(--high-contrast-text-primary);

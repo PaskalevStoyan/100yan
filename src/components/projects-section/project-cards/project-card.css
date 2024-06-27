@@ -1,19 +1,76 @@
-
 .card-container {
-  perspective: 50em;
-  padding-bottom: 3rem;
+  width: 300px;
+  height: 400px;
 }
 
 .card {
+  border: 1px solid #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .card-container {
+  perspective: 50em;
+  padding-bottom: 3rem;
+} */
+
+/* .card {
   position: relative;
   width: 350px;
   padding: 3em;
   color: var(--high-contrast-text-primary);
+
+  
   transform: rotateY(30deg) rotateX(15deg);
   transform-style: preserve-3d;
-  transition: transform 0.5s;
-}
-
+  transition: transform 0.5s ;  
+} */
+/* 
 .project-name {
   color: var(--high-contrast-text-primary);
   font-size: 1.75rem;
@@ -26,6 +83,7 @@
 
 .card:hover {
   transform: rotateY(0deg) rotateX(0);
+  transform-style: unset;
 }
 
 .layers {
@@ -101,4 +159,4 @@
 .card-btn:hover {
   color: var(--high-contrast-text-primary);
   transform: scale(1.1)
-}
+} */

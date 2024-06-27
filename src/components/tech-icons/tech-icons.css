@@ -7,11 +7,13 @@
 
 .tech-icons-wrapper {
   width: 100%;
-  height: 100%;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.25rem;
+
+  border-bottom: 1px solid var(--solid-h-c-text-secondary);
+  border-top: 1px solid var(--solid-h-c-text-secondary);
 
   position: relative;
   overflow: hidden;
@@ -40,7 +42,7 @@
   background-color: var(--solid-borders-and-separators);
 }
 
-.tech-icon, .tech-icon-name {
+.tech-icon { 
   display: block;
   width: 100px;
   height: 100px;

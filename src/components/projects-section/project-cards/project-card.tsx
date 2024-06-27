@@ -6,7 +6,7 @@ export const ProjectCard = () => {
   return (
     <div className="card-container">
       <div className="card">
-        <div className="card-info">
+        {/* <div className="card-info">
           <div className="card-text">
             <h3 className="project-name">Hover Me</h3>
             <br />
@@ -32,7 +32,7 @@ export const ProjectCard = () => {
           <div className="layer"></div>
           <div className="layer"></div>
           <div className="layer"></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
