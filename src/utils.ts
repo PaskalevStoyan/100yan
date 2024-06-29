@@ -45,12 +45,28 @@ export const cardsInfo: Array<CardInfo> = [
   },
 ];
 
-export const findParent = (element: HTMLElement) => {
+export const findParent = (element: HTMLElement, className: string) => {
   while (element.parentElement) {
-    if (element.classList.contains("card-item")) {
+    if (element.classList.contains(className)) {
       return element;
     }
 
     element = element.parentElement;
   }
 };
+
+export const icons = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Angular",
+  "NextJS",
+  "HTML5",
+  "CSS3",
+  "Bootstrap",
+  "TailwindCSS",
+  "git",
+  "Jest",
+  "npm",
+  "firebase",
+];

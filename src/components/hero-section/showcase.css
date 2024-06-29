@@ -40,7 +40,7 @@
   color: var(--solid-h-c-text-primary);
 }
 .text-highlight {
-  color: var(--high-contrast-text-primary);
+  color: var(--solid-h-c-text-primary);
   text-rendering: optimizeLegibility;
 }
 

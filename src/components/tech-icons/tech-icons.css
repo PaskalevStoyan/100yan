@@ -42,7 +42,7 @@
   background-color: var(--solid-borders-and-separators);
 }
 
-.tech-icon { 
+.tech-icon {
   display: block;
   width: 100px;
   height: 100px;
@@ -68,67 +68,67 @@
 }
 
 .HTML5-icon {
-  background-image: url("../../icons/icons8-html5-48.png");
+  background-image: url("../../../public/images/icons8-html5-48.png");
   animation-delay: calc(15s / 12 * (12 - 1) * -1);
 }
 
 .CSS3-icon {
-  background-image: url("../../icons/icons8-css3-48.png");
+  background-image: url("../../../public/images/icons8-css3-48.png");
   animation-delay: calc(15s / 12 * (12 - 2) * -1);
 }
 
 .JavaScript-icon {
-  background-image: url("../../icons/icons8-javascript-48.png");
+  background-image: url("../../../public/images/icons8-javascript-48.png");
   animation-delay: calc(15s / 12 * (12 - 3) * -1);
 }
 
 .React-icon {
-  background-image: url("../../icons/icons8-react-a-javascript-library-for-building-user-interfaces-48.png");
+  background-image: url("../../../public/images/icons8-react-a-javascript-library-for-building-user-interfaces-48.png");
   animation-delay: calc(15s / 12 * (12 - 4) * -1);
 }
 
 .Angular-icon {
-  background-image: url("../../icons/icons8-angular-48.png");
+  background-image: url("../../../public/images/icons8-angular-48.png");
   animation-delay: calc(15s / 12 * (12 - 5) * -1);
 }
 
 .Bootstrap-icon {
-  background-image: url("../../icons/icons8-bootstrap-48.png");
+  background-image: url("../../../public/images/icons8-bootstrap-48.png");
   animation-delay: calc(15s / 12 * (12 - 6) * -1);
 }
 
 .TailwindCSS-icon {
-  background-image: url("../../icons/icons8-tailwind-css-48.png");
+  background-image: url("../../../public/images/icons8-tailwind-css-48.png");
   animation-delay: calc(15s / 12 * (12 - 7) * -1);
 }
 
 .firebase-icon {
-  background-image: url("../../icons/icons8-firebase-48.png");
+  background-image: url("../../../public/images/icons8-firebase-48.png");
   animation-delay: calc(15s / 12 * (12 - 7) * -1);
 }
 
 .git-icon {
-  background-image: url("../../icons/icons8-git-48.png");
+  background-image: url("../../../public/images/icons8-git-48.png");
   animation-delay: calc(15s / 12 * (12 - 8) * -1);
 }
 
 .Jest-icon {
-  background-image: url("../../icons/icons8-jest-can-collect-code-coverage-information-from-entire-projects-48.png");
+  background-image: url("../../../public/images/icons8-jest-can-collect-code-coverage-information-from-entire-projects-48.png");
   animation-delay: calc(15s / 12 * (12 - 9) * -1);
 }
 
 .npm-icon {
-  background-image: url("../../icons/icons8-npm-48.png");
+  background-image: url("../../../public/images/icons8-npm-48.png");
   animation-delay: calc(15s / 12 * (12 - 10) * -1);
 }
 
 .NextJS-icon {
-  background-image: url("../../icons/icons8-nextjs-48.png");
+  background-image: url("../../../public/images/icons8-nextjs-48.png");
   animation-delay: calc(15s / 12 * (12 - 11) * -1);
 }
 
 .TypeScript-icon {
-  background-image: url("../../icons/icons8-typescript-48.png");
+  background-image: url("../../../public/images/icons8-typescript-48.png");
   animation-delay: calc(15s / 12 * (12 - 12) * -1);
 }
 

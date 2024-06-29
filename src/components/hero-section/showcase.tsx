@@ -56,7 +56,7 @@ export const Showcase = (props: any) => {
   // Change Card Animation
   const onCardClick = (event: any) => {
     const target = event.target;
-    const newSelectedCard = findParent(target);
+    const newSelectedCard = findParent(target, "card-item");
 
     const currentSelectedCard = document.querySelector(".selected-card");
 

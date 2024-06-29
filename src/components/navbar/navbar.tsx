@@ -22,7 +22,8 @@ export const Navbar = (props: NavbarProps) => {
 
     if (getSection) {
       const getSectionY = getSection.getBoundingClientRect().y;
-      const scrollHeight = target.innerText === "About Me" ? 0 : getSectionY - 200;
+      const scrollHeight =
+        target.innerText === "About Me" ? 0 : getSectionY - 300;
       window.scrollTo({
         top: scrollHeight,
         behavior: "smooth",

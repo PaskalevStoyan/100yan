@@ -1,162 +1,147 @@
 .card-container {
-  width: 300px;
-  height: 400px;
+  position: relative;
+
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .card {
-  border: 1px solid #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.project-card-image {
+
+  width: 100%;
+  height: 100%;
+  box-shadow: 9px 9px 8px rgba(0, 0, 0, .5);
+
+
+  -webkit-filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
+  -webkit-transition: .3s ease-in-out;
+
+  transition: .3s ease-in-out;
+}
+
+.project-card-image.active-card {
+  -webkit-filter: grayscale(100%) blur(5px);
+  filter: grayscale(100%) blur(5px);
+}
+
+.project-card-image .project-image {
+  background-image: url("../../../../public/images/image-1.jpg");
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .card-container {
-  perspective: 50em;
-  padding-bottom: 3rem;
-} */
-
-/* .card {
-  position: relative;
-  width: 350px;
-  padding: 3em;
-  color: var(--high-contrast-text-primary);
-
-  
-  transform: rotateY(30deg) rotateX(15deg);
-  transform-style: preserve-3d;
-  transition: transform 0.5s ;  
-} */
-/* 
 .project-name {
+  font-size: 1.5rem;
   color: var(--high-contrast-text-primary);
-  font-size: 1.75rem;
 }
 
 .project-desc {
+  font-size: 1rem;
   color: var(--high-contrast-text-secondary);
-  font-size: 0.9rem;
 }
 
-.card:hover {
-  transform: rotateY(0deg) rotateX(0);
-  transform-style: unset;
-}
+.card-btn-container {
+  visibility: hidden;
+  opacity: 0;
 
-.layers {
   position: absolute;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  transform-style: preserve-3d;
-  z-index: -1;
-}
+  top: 28%;
+  left: 33%;
 
-.layer {
-  position: absolute;
-  left: 0; top: 0;
-  width: 100%;
-  height: 350px;
-  border-radius: 1em;
-  background-image: repeating-linear-gradient(-50deg, #d8f4f609 5em 6.25em, #f000 10em 1em);
-  backdrop-filter: blur(64px);
-  transform: translateZ(var(--tz));
-}
-
-.layer:nth-child(1) {
-  --tz: 0px;
-}
-.layer:nth-child(2) {
-  --tz: -4px;
-}
-.layer:nth-child(3) {
-  --tz: -8px;
-}
-.layer:nth-child(4) {
-  --tz: -12px;
-}
-.layer:nth-child(5) {
-  --tz: -16px;
-}
-.layer:nth-child(6) {
-  --tz: -20px;
-}
-.layer:nth-child(7) {
-  --tz: -24px;
-}
-.layer:nth-child(8) {
-  --tz: -28px;
-}
-.layer:nth-child(9) {
-  --tz: -32px;
-}
-.layer:nth-child(10) {
-  --tz: -36px;
-}
-
-.card-info {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  gap: 4rem;
+  flex-direction: row;
+  gap: 2rem;
+
+  transition: 0.5s ease-in-out;
 }
+
+
 .card-btn {
-  font-size: 0.9rem;
-  
-  padding: 0.5rem 0.85rem;
-  background-color: var(--background-color);
+  border: none;
+  cursor: pointer;
+  transform: scale(0.8);
+  transition: 0.2s ease-in-out;
+}
 
-  color: var(--high-contrast-text-secondary);
-  border: 1px solid var(--borders-and-separators-selected);
-  border-radius: 5px;
 
-  transition: all 0.5s;
+.code-icon {
+  fill: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.code-icon:hover {
+  fill: var(--solid-h-c-text-primary);
+}
+
+.arrow-right-icon {
+  stroke: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.arrow-right-icon:hover {
+  stroke: var(--solid-h-c-text-primary);
+}
+
+.code-icon:hover {
+  stroke: var(--solid-h-c-text-primary)
 }
 
 .card-btn:hover {
+  transform: scale(1.1);
+}
+
+
+.chip-list {
+  visibility: hidden;
+  opacity: 0;
+  width: fit-content;
+  position: absolute;
+  top: 55%;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  transition: 0.5s ease-in-out;
+}
+
+.show-chip-list,
+.show-card-btn {
+  visibility: visible;
+  opacity: 1;
+}
+
+.chip {
   color: var(--high-contrast-text-primary);
-  transform: scale(1.1)
-} */
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border: 3px solid var(--solid-borders-and-separators);
+  border-radius: 15px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  transition: all 0.3s ease-in;
+}
+
+.chip:hover {
+  transform: scale(1.1);
+  background-color: var(--borders-and-separators-selected);
+  color: var(--solid-h-c-text-primary);
+  border-color: var(--borders-and-separators-selected);
+}
