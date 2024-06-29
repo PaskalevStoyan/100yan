@@ -29,6 +29,8 @@ export const ProjectCard = () => {
 
     const isHover = (e) => e.parentElement.querySelector(":hover") === e;
 
+    console.log(isHover(cardBtn), isHover(chipList));
+    
     if (!isHover(cardBtn) && !isHover(chipList)) {
       chipList?.classList.remove("show-chip-list");
       cardBtn?.classList.remove("show-card-btn");
@@ -57,6 +59,8 @@ export const ProjectCard = () => {
       </div>
       <div className="chip-list">
         <span className="chip">React</span>
+        <span className="chip">CSS3</span>
+        <span className="chip">CSS3</span>
         <span className="chip">CSS3</span>
         <span className="chip">HTML5</span>
       </div>

@@ -15,8 +15,8 @@ export const linksArray: Array<Links> = [
     selected: false,
   },
   {
-    text: "Contacts",
-    url: "#Contacts",
+    text: "Contact Me",
+    url: "#Contact Me",
     selected: false,
   },
 ];

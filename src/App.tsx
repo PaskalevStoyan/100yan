@@ -5,6 +5,7 @@ import { Showcase } from "./components/hero-section/showcase";
 import { Container } from "./components/container/container";
 import { ProjectSection } from "./components/projects-section/projects";
 import { ShowTechIcons } from "./components/tech-icons/tech-icons";
+import { Contact } from "./components/contact-section/contact";
 
 function App() {
   const [shouldShowNavbar, setShouldShowNavbar] = React.useState(true);
@@ -53,6 +54,7 @@ function App() {
         <Showcase />
         <ShowTechIcons />
         <ProjectSection />
+        <Contact />
       </Container>
     </div>
   );

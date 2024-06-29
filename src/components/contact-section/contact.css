@@ -1,0 +1,61 @@
+.contact-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid #fff;
+  padding-top: 3rem;
+}
+
+.contact-form form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.floating-label-container {
+  position: relative;
+}
+
+.contact-form-input {
+  font-size: 15px;
+  display: block;
+  width: 300px;
+  height: 36px;
+  padding: 0 20px;
+  background: var(--app-background);
+  color: var(--high-contrast-text-primary);
+  border: 1px solid var(--solid-borders-and-separators);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.contact-form-input:focus {
+  outline: none;
+}
+
+.contact-form-label {
+  color: var(--high-contrast-text-primary);
+  /* font-size: 1px; */
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  font-size: 15px;
+  left: 15px;
+  top: 8px;
+  padding: 0 5px;
+  background: var(--app-background);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.contact-form-input:focus~.contact-form-label {
+  top: -8px;
+  font-size: 12px;
+}

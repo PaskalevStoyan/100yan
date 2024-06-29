@@ -39,6 +39,10 @@
   height: 100%;
 }
 
+.card-project-text {
+  width: fit-content;
+  height: 100px;
+}
 
 .project-name {
   font-size: 1.5rem;
@@ -104,12 +108,14 @@
 .chip-list {
   visibility: hidden;
   opacity: 0;
-  width: fit-content;
-  position: absolute;
-  top: 55%;
-  padding-left: 1rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 353px;
+  position: absolute;
+  top: 52%;
+  left: 6%;
+
   gap: 1rem;
 
   transition: 0.5s ease-in-out;
