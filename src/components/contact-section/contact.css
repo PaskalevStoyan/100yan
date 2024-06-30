@@ -27,6 +27,10 @@
   position: relative;
 }
 
+.contact-form-info {
+  padding-top: 5.5rem;
+}
+
 .contact-form-input,
 .contact-form-textarea {
   font-size: 16px;
@@ -212,11 +216,11 @@
   content: "";
   position: absolute;
   bottom: 30px;
-  left: 50px;
-  height: 30px;
-  width: 30px;
+  left: 42px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background: #FF3D00;
+  background: var(--solid-color);
   animation: loading-bounce 0.5s ease-in-out infinite alternate;
 }
 .loader:after {

@@ -1,14 +1,7 @@
 import React from "react";
 import "./contact.css";
 import emailjs from "@emailjs/browser";
-
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
+import { getInputs, sendEmail, validateInputs } from "./contact-utils";
 
 export const Contact = () => {
   const [form, setForm] = React.useState({
@@ -17,63 +10,30 @@ export const Contact = () => {
     subject: "",
     message: "",
   });
+
   const [disableButton, setDisableButton] = React.useState(false);
 
   const formRef = React.useRef(null);
 
-  const sendEmail = (event: any) => {
+  const onEmailSubmit = (event: any) => {
     event.preventDefault();
 
     const findEmailForm = document.querySelector(
       ".contact-form-input[name=email]"
     );
-    const isEmailValid = validateEmail(form.email) && form.email !== "";
 
-    if (!isEmailValid) {
-      findEmailForm?.classList.add("error");
-    } else {
-      const findAllInputs = document.querySelectorAll(".contact-form-input");
-      const findTextArea = document.querySelector(".contact-form-textarea");
-      const findContactFormContainer = document.querySelector(".contact-form");
+    const canSendEmail = validateInputs(form);
 
-      findEmailForm?.classList.remove("error");
+    if (canSendEmail) {
+      const { findContactFormContainer } = getInputs();
+
+      // findEmailForm?.classList.remove("error");
       findContactFormContainer?.classList.add("show-overlay");
 
       setDisableButton(true);
 
       setTimeout(() => {
-        emailjs
-        .sendForm(
-          "service_huk6p4f",
-          "template_45j3g2s",
-          formRef.current as any,
-          {
-            publicKey: "H68tqnwTMPOS01nMu",
-          }
-        )
-        .then(
-          () => {
-            console.log("SUCCESS!");
-
-            setForm({
-              fullName: "",
-              email: "",
-              subject: "",
-              message: "",
-            });
-
-            findTextArea?.classList.remove("focus");
-
-            findAllInputs.forEach((input) => {
-              input.classList.remove("focus");
-            });
-            setDisableButton(false);
-            findContactFormContainer?.classList.remove("show-overlay");
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-          }
-        );
+        sendEmail(emailjs, formRef, setForm, setDisableButton);
       }, 2000);
     }
   };
@@ -83,9 +43,7 @@ export const Contact = () => {
     const value = target.value;
     const name = target.name;
 
-    if (name === "email") {
-      target?.classList.remove("error");
-    }
+    target?.classList.remove("error");
 
     setForm({
       ...form,
@@ -108,17 +66,17 @@ export const Contact = () => {
   };
 
   return (
-    <div id="ContactMe" className="contact-form-container">
+    <div id="Contact-Me" className="contact-form-container">
       <div className="contact-form-info">
         <div className="contact-form-text">
           <h1 className="contact-form-title">
             Let's <span className="highlight-text">connect</span>.
           </h1>
           <h1 className="contact-form-title">
-            Tell me about your <span className="highlight-text">project</span>.
+            Tell me about <span className="highlight-text">your project</span>.
           </h1>
           <p className="contact-form-paragraph">
-            Let's create something together 🤝
+            Let's build something together 🤝
           </p>
         </div>
         <span className="contact-form-logo"></span>
@@ -129,10 +87,9 @@ export const Contact = () => {
       </div>
 
       <div className="contact-form">
-        <form ref={formRef} onSubmit={sendEmail}>
+        <form ref={formRef} onSubmit={onEmailSubmit}>
           <div className="floating-label-container">
             <input
-              required
               value={form.fullName}
               onChange={handleFormChange}
               onFocus={onFocus}
@@ -148,7 +105,6 @@ export const Contact = () => {
           </div>
           <div className="floating-label-container">
             <input
-              required
               value={form.email}
               onChange={handleFormChange}
               onFocus={onFocus}
@@ -164,7 +120,6 @@ export const Contact = () => {
           </div>
           <div className="floating-label-container">
             <input
-              required
               value={form.subject}
               onChange={handleFormChange}
               onFocus={onFocus}
@@ -180,7 +135,6 @@ export const Contact = () => {
           </div>
           <div className="floating-label-container">
             <textarea
-              required
               value={form.message}
               onChange={handleFormChange}
               onFocus={onFocus}
@@ -193,7 +147,11 @@ export const Contact = () => {
               Write me a message
             </label>
           </div>
-          <button disabled={disableButton} className="form-button" type="submit">
+          <button
+            disabled={disableButton}
+            className="form-button"
+            type="submit"
+          >
             Send Message
           </button>
         </form>
@@ -212,6 +170,7 @@ export const Contact = () => {
             <span>A</span>
             <span>I</span>
             <span>L</span>
+            <span>.</span>
             <span>.</span>
             <span>.</span>
           </div>

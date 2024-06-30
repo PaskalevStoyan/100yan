@@ -17,24 +17,27 @@ export const Navbar = (props: NavbarProps) => {
     const target = event.target;
 
     const getSection = document.querySelector(
-      `#${target.innerText.replace(" ", "")}`
+      `#${target.innerText.replace(" ", "-")}`
     );
 
-    console.log(target.innerText)
 
-    console.log(event);
     if (getSection) {
-      const getSectionY = getSection.getBoundingClientRect().y;
-      const projectHeight = getSectionY - 300;
-      const scrollHeight =
-        target.innerText === "About Me" ? 0 : target.innerText === "Projects" ? projectHeight : getSectionY;
+      let scrollHeight = getSection.getBoundingClientRect().top + window.scrollY;
+
+      if (getSection.id === "Projects") {
+        scrollHeight -= 400;
+      } else if (getSection.id === "Contact-Me") {
+        scrollHeight -= 200;
+      } else {
+        scrollHeight = 0
+      }
 
 
-        //: getSectionY - 300
       window.scrollTo({
         top: scrollHeight,
         behavior: "smooth",
-      });
+      
+      })
     }
 
     if (target.classList.contains("navbar-link")) {

@@ -6,7 +6,7 @@ export const linksArray: Array<Links> = [
   },
   {
     text: "About Me",
-    url: "#AboutMe",
+    url: "#About-Me",
     selected: true,
   },
   {
@@ -16,7 +16,7 @@ export const linksArray: Array<Links> = [
   },
   {
     text: "Contact Me",
-    url: "#Contact Me",
+    url: "#Contact-Me",
     selected: false,
   },
 ];

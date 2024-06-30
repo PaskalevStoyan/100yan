@@ -138,7 +138,7 @@ export const Showcase = (props: any) => {
   };
 
   return (
-    <div className="showcase" id="AboutMe">
+    <div className="showcase" id="About-Me">
       <div className="showcase-introduction">
         <h2 className="showcase-mid-headings">Hello Wanderer!</h2>
         <h1 className=" typewriter typing-demo showcase-big-heading">

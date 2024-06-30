@@ -13,9 +13,19 @@ function App() {
   const [lastScrollPosition, setLastScrollPosition] = React.useState(0);
 
   const [selectedLink, setSelectedLink] = React.useState(1);
-  
+
+  const handleOnNavChange = (navName: string) => {
+    if (navName === "About Me") {
+      setSelectedLink(1);
+    } else if (navName === "Projects") {
+      setSelectedLink(2);
+    } else if (navName === "Contact Me") {
+      setSelectedLink(3);
+    }
+  };
+
   React.useEffect(() => {
-    const handleScroll = (event: any) => {
+    const handleScroll = (_: any) => {
       setCurrentScrollPosition(window.scrollY);
 
       if (currentScrollPosition > lastScrollPosition) {
@@ -28,15 +38,15 @@ function App() {
         }, 100);
       }
 
-      if (window.scrollY < 1000) { 
-        setSelectedLink(1);
-      } else if (window.scrollY > 1000) { 
-        setSelectedLink(2);
-      } else {
-        setSelectedLink(3);
-      }
-
       setLastScrollPosition(currentScrollPosition);
+
+      if (window.scrollY > 3150) {
+        setSelectedLink(3);
+      } else if (window.scrollY > 1000) {
+        setSelectedLink(2);
+      } else if (window.scrollY < 1000) {
+        setSelectedLink(1);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -55,7 +65,7 @@ function App() {
         <ShowTechIcons />
         <ProjectSection />
       </Container>
-        <Contact />
+      <Contact />
     </div>
   );
 }
