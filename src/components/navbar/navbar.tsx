@@ -20,10 +20,17 @@ export const Navbar = (props: NavbarProps) => {
       `#${target.innerText.replace(" ", "")}`
     );
 
+    console.log(target.innerText)
+
+    console.log(event);
     if (getSection) {
       const getSectionY = getSection.getBoundingClientRect().y;
+      const projectHeight = getSectionY - 300;
       const scrollHeight =
-        target.innerText === "About Me" ? 0 : getSectionY - 300;
+        target.innerText === "About Me" ? 0 : target.innerText === "Projects" ? projectHeight : getSectionY;
+
+
+        //: getSectionY - 300
       window.scrollTo({
         top: scrollHeight,
         behavior: "smooth",

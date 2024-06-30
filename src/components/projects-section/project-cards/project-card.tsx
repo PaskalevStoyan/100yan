@@ -28,8 +28,6 @@ export const ProjectCard = () => {
     const cardBtn = parent?.querySelector(".card-btn-container");
 
     const isHover = (e) => e.parentElement.querySelector(":hover") === e;
-
-    console.log(isHover(cardBtn), isHover(chipList));
     
     if (!isHover(cardBtn) && !isHover(chipList)) {
       chipList?.classList.remove("show-chip-list");

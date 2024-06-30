@@ -54,8 +54,8 @@ function App() {
         <Showcase />
         <ShowTechIcons />
         <ProjectSection />
-        <Contact />
       </Container>
+        <Contact />
     </div>
   );
 }
