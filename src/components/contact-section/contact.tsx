@@ -97,7 +97,7 @@ export const Contact = () => {
               type="text"
               name="fullName"
               id="full-name"
-              className="contact-form-input"
+              className="contact-form-input" 
             />
             <label htmlFor="full-name" className="label contact-form-label">
               Full Name
