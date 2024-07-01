@@ -1,10 +1,11 @@
 import React from "react";
 import "./contact.css";
+import "./pyro.css";
 import emailjs from "@emailjs/browser";
-import { getInputs, sendEmail, validateInputs } from "./contact-utils";
+import { Form, getInputs, sendEmail, validateInputs } from "./contact-utils";
 
 export const Contact = () => {
-  const [form, setForm] = React.useState({
+  const [form, setForm] = React.useState<Form>({
     fullName: "",
     email: "",
     subject: "",
@@ -18,16 +19,11 @@ export const Contact = () => {
   const onEmailSubmit = (event: any) => {
     event.preventDefault();
 
-    const findEmailForm = document.querySelector(
-      ".contact-form-input[name=email]"
-    );
-
     const canSendEmail = validateInputs(form);
 
     if (canSendEmail) {
       const { findContactFormContainer } = getInputs();
 
-      // findEmailForm?.classList.remove("error");
       findContactFormContainer?.classList.add("show-overlay");
 
       setDisableButton(true);
@@ -38,7 +34,11 @@ export const Contact = () => {
     }
   };
 
-  const handleFormChange = (event: any) => {
+  const handleFormChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -51,13 +51,21 @@ export const Contact = () => {
     });
   };
 
-  const onFocus = (event: any) => {
+  const onFocus = (
+    event:
+      | React.FocusEvent<HTMLInputElement, Element>
+      | React.FocusEvent<HTMLTextAreaElement, Element>
+  ) => {
     const target = event.target;
 
     target.classList.add("focus");
   };
 
-  const onBlur = (event: any) => {
+  const onBlur = (
+    event:
+      | React.FocusEvent<HTMLInputElement, Element>
+      | React.FocusEvent<HTMLTextAreaElement, Element>
+  ) => {
     const target = event.target;
 
     if (target.value === "") {
@@ -97,7 +105,7 @@ export const Contact = () => {
               type="text"
               name="fullName"
               id="full-name"
-              className="contact-form-input" 
+              className="contact-form-input"
             />
             <label htmlFor="full-name" className="label contact-form-label">
               Full Name
@@ -156,25 +164,63 @@ export const Contact = () => {
           </button>
         </form>
         <span className="form-overlay">
-          <div className="loading">
-            <span>S</span>
-            <span>E</span>
-            <span>N</span>
-            <span>D</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
-            <span> </span>
-            <span>E</span>
-            <span>M</span>
-            <span>A</span>
-            <span>I</span>
-            <span>L</span>
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
-          </div>
+          <span className="loading-text">Preparing Your Email...</span>
           <span className="loader"></span>
+
+          <div className="text-sent-1">Thank you!</div>
+          <div className="text-sent-2">
+            For sharing <span className="highlight-text">your ideas</span>.
+          </div>
+          <div className="pyro">
+            <div className="before"></div>
+            <div className="after"></div>
+          </div>
+
+          <div className="email-error">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 130.2 130.2"
+            >
+              <circle
+                className="path circle"
+                fill="none"
+                stroke="#D06079"
+                stroke-width="6"
+                stroke-miterlimit="10"
+                cx="65.1"
+                cy="65.1"
+                r="62.1"
+              />
+              <line
+                className="path line"
+                fill="none"
+                stroke="#D06079"
+                stroke-width="6"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                x1="34.4"
+                y1="37.9"
+                x2="95.8"
+                y2="92.3"
+              />
+              <line
+                className="path line"
+                fill="none"
+                stroke="#D06079"
+                stroke-width="6"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                x1="95.8"
+                y1="38"
+                x2="34.4"
+                y2="92.2"
+              />
+            </svg>
+            <p className="email-text-error">Bummer!</p>
+            <p className="email-text-error small">Something went wrong!</p>
+            <p className="email-text-error small">Please try again!</p>
+          </div>
         </span>
       </div>
     </div>

@@ -1,16 +1,23 @@
-export const validateEmail = (email) => {
-  return String(email)
+export type Form = {
+  fullName: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+export const validateEmail = (email: string) => {
+  return email
     .toLowerCase()
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 };
 
-export const validateInputs = (form: any) => {
-  let isValid = true;
+export const validateInputs = (form: Form) => {
+  let isValid: boolean = true;
 
   Object.keys(form).forEach((key) => {
-    const findInput = document.querySelector(
+    const findInput: Element | null = document.querySelector(
       `.contact-form-input[name=${key}]`
     );
 
@@ -19,9 +26,11 @@ export const validateInputs = (form: any) => {
       isValid = false;
     }
 
-    if (form[key] === "") {
+    const isTextWhiteSpaceOnly: boolean = form[key].replace(/\s/g, "") === "";
+
+    if (form[key] === "" || isTextWhiteSpaceOnly) {
       if (key === "message") {
-        const findInput = document.querySelector(
+        const findInput: Element | null = document.querySelector(
           `.contact-form-textarea[name=${key}]`
         );
 
@@ -47,10 +56,13 @@ export const getInputs = () => {
 
 export const sendEmail = (
   emailjs: any,
-  formRef: any,
-  setForm: any,
-  setDisableButton: any
+  formRef: React.MutableRefObject<null>,
+  setForm: React.Dispatch<React.SetStateAction<Form>>,
+  setDisableButton: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
+  const { findAllInputs, findTextArea, findContactFormContainer } =
+  getInputs();
+
   emailjs
     .sendForm("service_huk6p4f", "template_45j3g2s", formRef.current as any, {
       publicKey: "H68tqnwTMPOS01nMu",
@@ -64,8 +76,7 @@ export const sendEmail = (
           message: "",
         });
 
-        const { findAllInputs, findTextArea, findContactFormContainer } =
-          getInputs();
+
 
         findTextArea?.classList.remove("focus");
 
@@ -73,10 +84,20 @@ export const sendEmail = (
           input.classList.remove("focus");
         });
         setDisableButton(false);
-        findContactFormContainer?.classList.remove("show-overlay");
+        findContactFormContainer?.classList.add("email-success");
+
+        setTimeout(() => {
+          findContactFormContainer?.classList.remove("email-success");
+          findContactFormContainer?.classList.remove("show-overlay");
+        }, 6000);
       },
       (error) => {
-        console.log("FAILED...", error.text);
+        findContactFormContainer?.classList.add("show-email-error");
+
+        setTimeout(() => {
+          findContactFormContainer?.classList.remove("show-email-error");
+          findContactFormContainer?.classList.remove("show-overlay");
+        }, 3000);
       }
     );
 };
