@@ -3,6 +3,12 @@ import "./contact.css";
 import "./pyro.css";
 import emailjs from "@emailjs/browser";
 import { Form, getInputs, sendEmail, validateInputs } from "./contact-utils";
+import { GitHubIcon } from "../../icons/github";
+import { LinkedInIcon } from "../../icons/linkedin";
+
+export const Separator = () => {
+  return <div className="separator"></div>;
+};
 
 export const Contact = () => {
   const [form, setForm] = React.useState<Form>({
@@ -87,10 +93,14 @@ export const Contact = () => {
             Let's build something together 🤝
           </p>
         </div>
-        <span className="contact-form-logo"></span>
         <div className="contact-form-social">
-          <span className="linked-icon"></span>
-          <span className="github-icon"></span>
+          <a href="https://github.com/PaskalevStoyan">
+            <GitHubIcon />
+          </a>
+          <Separator />
+          <a href="https://www.linkedin.com/in/stoyan-paskalev-b7aa261a3/">
+            <LinkedInIcon />
+          </a>
         </div>
       </div>
 
@@ -186,8 +196,8 @@ export const Contact = () => {
                 className="path circle"
                 fill="none"
                 stroke="#D06079"
-                stroke-width="6"
-                stroke-miterlimit="10"
+                strokeWidth="6"
+                strokeMiterlimit="10"
                 cx="65.1"
                 cy="65.1"
                 r="62.1"
@@ -196,9 +206,9 @@ export const Contact = () => {
                 className="path line"
                 fill="none"
                 stroke="#D06079"
-                stroke-width="6"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeMiterlimit="10"
                 x1="34.4"
                 y1="37.9"
                 x2="95.8"
@@ -208,9 +218,9 @@ export const Contact = () => {
                 className="path line"
                 fill="none"
                 stroke="#D06079"
-                stroke-width="6"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeMiterlimit="10"
                 x1="95.8"
                 y1="38"
                 x2="34.4"

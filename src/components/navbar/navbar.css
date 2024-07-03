@@ -41,9 +41,9 @@
   text-decoration: none;
   color: var(--high-contrast-text-secondary);
 
-  color-scheme: light;  
+  color-scheme: light;
   text-align: center;
-  
+
   border: 1px solid transparent;
   transition: all 0.4s;
   cursor: pointer;
@@ -92,3 +92,42 @@
   margin-right: 3rem;
 }
 
+@media screen and (max-width: 1100px) {
+  .logo {
+    width: 80px;
+    height: 30px;
+  }
+
+  .navbar {
+    gap: 20px;
+    padding: 0.75rem;
+  }
+
+  .navbar .navbar-link.selected::after {
+    top: 31.4px;
+  }
+
+  .navbar .navbar-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .logo {
+    width: 80px;
+    height: 30px;
+  }
+
+  .navbar {
+    gap: 20px;
+    padding: 0.75rem;
+  }
+
+  .navbar .navbar-link.selected::after {
+    top: 30.4px;
+  }
+
+  .navbar .navbar-link {
+    font-size: 0.5rem;
+  }
+}

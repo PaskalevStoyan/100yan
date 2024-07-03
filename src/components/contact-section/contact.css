@@ -422,3 +422,26 @@
     stroke-dashoffset: 900;
   }
 }
+
+
+.contact-form-social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.social-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.linkedin-icon {
+  margin-left: 0.25rem;
+}
+
+.separator {
+  height: auto;
+  margin-block: 0.5rem;
+  align-self: stretch;
+  border: 1px solid var(--borders-and-separators-selected);
+}

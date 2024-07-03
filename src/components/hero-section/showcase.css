@@ -1,10 +1,9 @@
 .showcase {
   width: 100%;
-  margin-top: 13rem;
+  padding: 6rem;
   display: flex;
-
-  flex: 1;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .typing-demo {
@@ -18,7 +17,7 @@
 
 .showcase-big-heading {
   position: relative;
-  font-size: 3rem;
+  font-size: 3.25rem;
   height: 150px;
   margin-bottom: 1rem;
 }
@@ -39,6 +38,7 @@
 .highlight-name {
   color: var(--solid-h-c-text-primary);
 }
+
 .text-highlight {
   color: var(--solid-h-c-text-primary);
   text-rendering: optimizeLegibility;
@@ -76,7 +76,7 @@
 }
 
 .showcase-about-me {
-  flex: 1;
+  padding-right: 10rem;
 }
 
 .cards-container {
@@ -200,9 +200,11 @@
   font-size: 1.2rem;
   font-weight: bolder;
 }
+
 .card-item:not(.selected-card) {
   gap: 40px;
 }
+
 .card-item.selected-card {
 
   backdrop-filter: blur(64px)
@@ -357,5 +359,96 @@
   100% {
     opacity: 1;
     filter: blur(0px);
+  }
+}
+
+
+@media screen and (max-width: 1450px) {
+  .showcase {
+    /* margin-top: 10rem; */
+    justify-content: center;
+
+    gap: 10rem;
+  }
+
+  .typing-demo {
+    width: 24.5ch;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .showcase-big-heading {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .name-text {
+    font-size: 3rem;
+  }
+
+  .surname {
+    left: 355px;
+    top: 50px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .showcase {
+    padding: 6rem 0;
+  }
+
+  .showcase-big-heading {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    height: 100px;
+  }
+
+  .showcase-mid-headings {
+    font-size: 1.05rem;
+  }
+
+  .name-text {
+    font-size: 2.25rem;
+  }
+
+  .showcase-paragraph {
+    font-size: 1.05rem;
+  }
+
+  .surname {
+    left: 232px;
+    top: 35px;
+  }
+
+  .typing-demo {
+    width: 26.5ch;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-item {
+    width: 400px;
+
+    left: 25px;
+  }
+
+  .card-item:nth-child(1) .card-heading {
+    font-size: 1.25rem;
+  }
+
+  .card-item:nth-child(2) .card-heading {
+    font-size: 0.6rem;
+  }
+
+  .card-item:nth-child(3) .card-heading {
+    font-size: 0.6rem;
+  }
+
+  .card-item .card-paragraph {
+    font-size: 0.9rem;
+  }
+
+  .card-heading .arrow-right {
+    display: none;
   }
 }
