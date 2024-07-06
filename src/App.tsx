@@ -14,31 +14,24 @@ function App() {
 
   const [selectedLink, setSelectedLink] = React.useState(1);
 
-  const handleOnNavChange = (navName: string) => {
-    if (navName === "About Me") {
-      setSelectedLink(1);
-    } else if (navName === "Projects") {
-      setSelectedLink(2);
-    } else if (navName === "Contact Me") {
-      setSelectedLink(3);
-    }
-  };
 
   React.useEffect(() => {
     const handleScroll = (_: any) => {
-      setCurrentScrollPosition(window.scrollY);
+      if (window.innerWidth >= 870) {
+        setCurrentScrollPosition(window.scrollY);
 
-      if (currentScrollPosition > lastScrollPosition) {
-        setTimeout(() => {
-          setShouldShowNavbar(false);
-        }, 100);
-      } else {
-        setTimeout(() => {
-          setShouldShowNavbar(true);
-        }, 100);
+        if (currentScrollPosition > lastScrollPosition) {
+          setTimeout(() => {
+            setShouldShowNavbar(false);
+          }, 100);
+        } else {
+          setTimeout(() => {
+            setShouldShowNavbar(true);
+          }, 100);
+        }
+
+        setLastScrollPosition(currentScrollPosition);
       }
-
-      setLastScrollPosition(currentScrollPosition);
 
       if (window.scrollY > 3150) {
         setSelectedLink(3);

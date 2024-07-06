@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./navbar.css";
-import { linksArray } from "../../utils";
+import { findParent, linksArray } from "../../utils";
+import { ExpandIconRight } from "../../icons/expand-icon";
 
 type NavbarProps = {
   shouldShow: boolean;
@@ -10,45 +11,68 @@ type NavbarProps = {
 
 export const Navbar = (props: NavbarProps) => {
   const { shouldShow, scrollSelected } = props;
+  const [canSelectNavLink, setCanSelectNavLink] = React.useState(false);
 
   const [links, setLinks] = React.useState(linksArray);
 
   const handleOnClick = (event: any) => {
     const target = event.target;
 
-    const getSection = document.querySelector(
-      `#${target.innerText.replace(" ", "-")}`
-    );
+    if (window.innerWidth >= 870 || canSelectNavLink) {
+      const getSection = document?.getElementById(
+        `${target?.innerText?.replace(" ", "-")}`
+      );
+
+      if (getSection) {
+        let scrollHeight = getSection.getBoundingClientRect().top + window.scrollY;
+
+        if (getSection.id === "Projects") {
+          scrollHeight -= 400;
+        } else if (getSection.id === "Contacts") {
+          scrollHeight -= 200;
+        } else {
+          scrollHeight = 0
+        }
 
 
-    if (getSection) {
-      let scrollHeight = getSection.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: scrollHeight,
+          behavior: "smooth",
 
-      if (getSection.id === "Projects") {
-        scrollHeight -= 400;
-      } else if (getSection.id === "Contact-Me") {
-        scrollHeight -= 200;
-      } else {
-        scrollHeight = 0
+        })
       }
 
+      if (target.classList.contains("navbar-link")) {
+        const currentSelected = links.map((link) => {
+          return {
+            ...link,
+            selected: link.text === target.innerText,
+          };
+        });
 
-      window.scrollTo({
-        top: scrollHeight,
-        behavior: "smooth",
-      
-      })
+        setLinks(currentSelected);
+      }
     }
 
-    if (target.classList.contains("navbar-link")) {
-      const currentSelected = links.map((link) => {
-        return {
-          ...link,
-          selected: link.text === target.innerText,
-        };
-      });
+    const expandIcon = findParent(target, "expand-icon");
 
-      setLinks(currentSelected);
+    if (expandIcon) {
+      const navbar = document.querySelector(".navbar");
+      navbar?.classList.toggle("expanded");
+
+      if (canSelectNavLink) {
+
+        navbar?.classList.remove("show-expand-text");
+
+        setTimeout(() => {
+          setCanSelectNavLink(!canSelectNavLink);
+        }, 600);
+      } else {
+        setTimeout(() => {
+          setCanSelectNavLink(!canSelectNavLink);
+          navbar?.classList.add("show-expand-text");
+        }, 600);
+      }
     }
   };
 
@@ -70,7 +94,11 @@ export const Navbar = (props: NavbarProps) => {
       onClick={handleOnClick}
       className={`${shouldShow ? "show" : "hide"} navbar`}
     >
-      {links.map((link, index) => {
+      <span className="expand-icon">
+        < ExpandIconRight dir={canSelectNavLink ? "left" : "right"} />
+      </span>
+
+      {links.map((link) => {
         const logo = link.text === "logo";
 
         if (logo) {
