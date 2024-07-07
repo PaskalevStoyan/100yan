@@ -94,11 +94,11 @@ export const Contact = () => {
           </p>
         </div>
         <div className="contact-form-social">
-          <a href="https://github.com/PaskalevStoyan">
+          <a href="https://github.com/PaskalevStoyan" target="_blank">
             <GitHubIcon />
           </a>
           <Separator />
-          <a href="https://www.linkedin.com/in/stoyan-paskalev-b7aa261a3/">
+          <a href="https://www.linkedin.com/in/stoyan-paskalev-b7aa261a3/" target="_blank">
             <LinkedInIcon />
           </a>
         </div>
@@ -174,7 +174,7 @@ export const Contact = () => {
           </button>
         </form>
         <span className="form-overlay">
-          <span className="loading-text">Preparing Your Email...</span>
+          <span className="loading-text">Sending Your Email...</span>
           <span className="loader"></span>
 
           <div className="text-sent-1">Thank you!</div>
