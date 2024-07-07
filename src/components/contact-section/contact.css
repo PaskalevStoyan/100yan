@@ -438,10 +438,3 @@
 .linkedin-icon {
   margin-left: 0.25rem;
 }
-
-.separator {
-  height: auto;
-  margin-block: 0.5rem;
-  align-self: stretch;
-  border: 1px solid var(--borders-and-separators-selected);
-}

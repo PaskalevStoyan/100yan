@@ -41,3 +41,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.separator {
+  height: auto;
+  margin-block: 0.5rem;
+  align-self: stretch;
+  border: 1px solid var(--borders-and-separators-selected);
+}

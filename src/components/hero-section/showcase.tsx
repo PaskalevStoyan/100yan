@@ -1,140 +1,41 @@
 import React from "react";
 import "./showcase.css";
+import { tabs } from "../../utils";
 
-import { cardsInfo, findParent } from "../../utils";
-import { CardInfo } from "../../interfaces";
-// import { ShowTechIcons } from "../tech-icons/show-tech-icons";
-
-const RightArrow = () => <span className="arrow-right"></span>;
-
-// Render Paragraph Text as they contain <span> tags
-const renderParagraphText = (text: string, title: string) => {
-  const regex = /<span className="text-highlight">.*?<\/span>/;
-
-  if (regex.test(text)) {
-    const splitText = text.split(regex);
-
-    if (text.includes("Born and raised in Dobrich")) {
-      return (
-        <span className="paragraph-text" key={title}>
-          {splitText[0]}
-          <span className="text-highlight">
-            a builder of things around the Internet
-          </span>
-          {splitText[1]}
-          <span className="text-highlight">Front End Developer</span>
-          {splitText[2]}
-        </span>
-      );
-    } else if (title === "Career Path") {
-      if (text.includes("My journey began")) {
-        return (
-          <span className="paragraph-text" key={title}>
-            {splitText[0]}
-            <span className="text-highlight">around 2017</span>
-            {splitText[1]}
-          </span>
-        );
-      }
-    }
-  }
-
-  return text;
-};
 export const Showcase = (props: any) => {
-  const [cards, setCards] = React.useState(
-    JSON.parse(localStorage.getItem("selectedCard") as string) ?? cardsInfo
-  );
-  const [selectedText, setSelectedText] = React.useState<any>({
-    "About Me": 0,
-    "Career Path": 0,
-    Hobbies: 0,
-  });
+  const [tab, setTab] = React.useState(0);
+  const [tabsInfo, setTabsInfo] = React.useState(tabs);
 
-  const currentCard = cards.find((card: any) => card.selected);
+  const handleTabClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const tab = target.closest(".tab");
+    const tabs = target.closest(".tabs-container");
 
-  // Change Card Animation
-  const onCardClick = (event: any) => {
-    const target = event.target;
-    const newSelectedCard = findParent(target, "card-item");
+    if (!tab || !tabs) return;
 
-    const currentSelectedCard = document.querySelector(".selected-card");
+    const index = Array.from(tabs.children).indexOf(tab);
 
-    if (!newSelectedCard?.classList.contains("selected-card")) {
-      currentSelectedCard?.classList.add("rmv-c-animation");
+    setTabsInfo((prev) => {
+      return prev.map((tab, i) => {
+        if (i === index) {
+          return { ...tab, selected: true };
+        }
+        return { ...tab, selected: false };
+      });
+    });
 
-      const addAnimation = newSelectedCard?.classList.contains("card-2")
-        ? "add-c-2-animation"
-        : "add-c-3-animation";
+    const content = document.querySelector(".tabstrip-content") as HTMLElement;
+    content.classList.add("content-fade-out");
 
-      newSelectedCard?.classList.add(addAnimation);
+    setTimeout(() => {
+      content.classList.remove("content-fade-out");
+      content.classList.add("content-fade-in");
+      setTab(index);
+    }, 600);
 
-      setTimeout(() => {
-        currentSelectedCard?.classList.remove("rmv-c-animation");
-        newSelectedCard?.classList.remove(addAnimation);
-
-        const currentArraySelected = cards.findIndex(
-          (card: any) => card.selected
-        );
-
-        const newCards = cards.map((card: any) => {
-          if (
-            card.title === newSelectedCard?.querySelector("h2")?.textContent
-          ) {
-            return { ...card, selected: true };
-          } else {
-            return { ...card, selected: false };
-          }
-        });
-
-        const newArraySelected = newCards.findIndex(
-          (card: any) => card.selected
-        );
-
-        [newCards[currentArraySelected], newCards[newArraySelected]] = [
-          newCards[newArraySelected],
-          newCards[currentArraySelected],
-        ];
-        setCards(newCards);
-
-        localStorage.setItem("selectedCard", JSON.stringify(newCards));
-      }, 950);
-    }
-  };
-
-  // Go back and Learn more buttons
-  const changeText = (event: any) => {
-    const target: HTMLElement = event.target;
-    const currentCard: CardInfo = cards.find(
-      (card: any) => card.selected
-    ) as CardInfo;
-    const selectedTextIndex = selectedText[currentCard.title] as any;
-
-    if (target.innerText === "Learn more") {
-      if (selectedTextIndex < currentCard.text.length - 1) {
-        setSelectedText({
-          ...selectedText,
-          [currentCard.title]: selectedTextIndex + 1,
-        });
-      } else {
-        setSelectedText({
-          ...selectedText,
-          [currentCard.title]: 0,
-        });
-      }
-    } else if (target.innerText === "Go back") {
-      if (selectedTextIndex > 0) {
-        setSelectedText({
-          ...selectedText,
-          [currentCard.title]: selectedTextIndex - 1,
-        });
-      } else {
-        setSelectedText({
-          ...selectedText,
-          [currentCard.title]: currentCard.text.length - 1,
-        });
-      }
-    }
+    setTimeout(() => {
+      content.classList.remove("content-fade-in");
+    }, 800);
   };
 
   return (
@@ -153,41 +54,30 @@ export const Showcase = (props: any) => {
         </p>
       </div>
 
-      <div className="showcase-about-me">
-        <div className="cards-container">
-          <div className="cards-wrapper">
-            {cards.map((card: any, index: any) => (
-              <div
-                key={card.title}
-                onClick={onCardClick}
-                className={`card-item card-${index + 1} ${
-                  card.selected ? "selected-card" : ""
-                }`}
-              >
-                <div className="card-heading" data-content={card.title}>
-                  <h2>{card.title}</h2>
-                  {card.selected ? null : <RightArrow />}
-                </div>
-                <div className="card-paragraph">
-                  <>
-                    {renderParagraphText(
-                      card.text[selectedText[card.title as string]] as any,
-                      card.title
-                    )}
-                  </>
-                </div>
-                {currentCard?.text.length! > 1 ? (
-                  <div className="card-buttons">
-                    <button onClick={changeText} className="card-button">
-                      Go back
-                    </button>
-                    <button onClick={changeText} className="card-button">
-                      Learn more
-                    </button>
-                  </div>
-                ) : null}
-              </div>
-            ))}
+      <div className="tabstrip-container">
+        <div className="tabstrip" id="tabstrip-r:0:">
+          <div
+            className="tabs-container"
+            role="tablist"
+            onClick={handleTabClick}
+          >
+            {tabsInfo.map((tab, index) => {
+              return (
+                <span
+                  aria-controls={`tabstrip-r:0:-panel-id`}
+                  role="tab"
+                  id={`tab-item-${tab.title?.toString().toLowerCase().replace(" ", "-")}`}
+                  key={tab.title}
+                  aria-selected={tab.selected}
+                  className={`tab${tab.selected ? " selected" : ""}`}
+                >
+                  {tab.title}
+                </span>
+              );
+            })}
+          </div>
+          <div id="tabstrip-r:0:-panel-id" role="tabpanel" className="tabstrip-content-container">
+            <div id={`tabstrip-r:0:-panel-id-${tab}`} className="tabstrip-content">{tabsInfo[tab].text}</div>
           </div>
         </div>
       </div>

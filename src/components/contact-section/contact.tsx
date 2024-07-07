@@ -94,11 +94,15 @@ export const Contact = () => {
           </p>
         </div>
         <div className="contact-form-social">
+          <p>find me on</p>
           <a href="https://github.com/PaskalevStoyan" target="_blank">
             <GitHubIcon />
           </a>
           <Separator />
-          <a href="https://www.linkedin.com/in/stoyan-paskalev-b7aa261a3/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/stoyan-paskalev-b7aa261a3/"
+            target="_blank"
+          >
             <LinkedInIcon />
           </a>
         </div>

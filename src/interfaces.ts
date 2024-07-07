@@ -4,8 +4,8 @@ export type Links = {
   selected?: boolean;
 };
 
-export type CardInfo = {
+export type TabsProps = {
   title: string;
-  text: Array<string>;
+  text: React.ReactNode;
   selected: boolean;
 };
