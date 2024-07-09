@@ -1,217 +1,64 @@
 .tech-icons-container {
-  height: 100px;
-  width: 100%;
+  padding: 0 3rem;
   display: flex;
-  align-items: center;
-
-  padding: 2rem
-}
-
-.tech-icons-wrapper {
-  width: 100%;
-  height: 160px;
-  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
-
-  border-bottom: 1px solid var(--solid-h-c-text-secondary);
-  border-top: 1px solid var(--solid-h-c-text-secondary);
-
-  position: relative;
-  overflow: hidden;
-
-  mask-image: linear-gradient(to right,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 1) 20%,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0));
 }
 
 .tech-icons-title {
-  position: relative;
-  flex: 1 1 70%;
-  font-size: 3.25rem;
-  color: var(--high-contrast-text-primary)
+  font-size: 2rem;
+  color: var(--high-contrast-text-primary);
 }
 
-.tech-icons-title::after {
-  content: "";
-  position: absolute;
-  bottom: -0.75rem;
-  left: 15%;
-  width: 191px;
-  height: 2px;
-  background-color: var(--solid-borders-and-separators);
+.tech-icons {
+  display: flex;
+  
+  justify-content: center;
+  align-self: center;
+  
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .tech-icon {
-  display: block;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: max(calc(100px * 12), 100%);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 250px;
+  height: 60px;
 
-  animation: scrollLeft 15s linear infinite;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  background-color: rgba(60, 61, 65, 0.2);
+  border: 1px solid var(--borders-and-separators);
+
+  transition: all 0.5s ease-in-out;
 }
 
-.tech-icon-name {
-  text-align: center;
+.tech-icon:hover {
+  background-color: rgba(60, 61, 65, 0.678);
+  border-color: var(--borders-and-separators-selected)
 }
 
-@keyframes scrollLeft {
-  to {
-    left: -200px;
-  }
-}
-
-.HTML5-icon {
-  background-image: url("../../../public/images/icons8-html5-48.png");
-  animation-delay: calc(15s / 12 * (12 - 1) * -1);
-}
-
-.CSS3-icon {
-  background-image: url("../../../public/images/icons8-css3-48.png");
-  animation-delay: calc(15s / 12 * (12 - 2) * -1);
-}
-
-.JavaScript-icon {
-  background-image: url("../../../public/images/icons8-javascript-48.png");
-  animation-delay: calc(15s / 12 * (12 - 3) * -1);
-}
-
-.React-icon {
-  background-image: url("../../../public/images/icons8-react-a-javascript-library-for-building-user-interfaces-48.png");
-  animation-delay: calc(15s / 12 * (12 - 4) * -1);
-}
-
-.Angular-icon {
-  background-image: url("../../../public/images/icons8-angular-48.png");
-  animation-delay: calc(15s / 12 * (12 - 5) * -1);
-}
-
-.Bootstrap-icon {
-  background-image: url("../../../public/images/icons8-bootstrap-48.png");
-  animation-delay: calc(15s / 12 * (12 - 6) * -1);
-}
-
-.TailwindCSS-icon {
-  background-image: url("../../../public/images/icons8-tailwind-css-48.png");
-  animation-delay: calc(15s / 12 * (12 - 7) * -1);
-}
-
-.firebase-icon {
-  background-image: url("../../../public/images/icons8-firebase-48.png");
-  animation-delay: calc(15s / 12 * (12 - 7) * -1);
-}
-
-.git-icon {
-  background-image: url("../../../public/images/icons8-git-48.png");
-  animation-delay: calc(15s / 12 * (12 - 8) * -1);
-}
-
-.Jest-icon {
-  background-image: url("../../../public/images/icons8-jest-can-collect-code-coverage-information-from-entire-projects-48.png");
-  animation-delay: calc(15s / 12 * (12 - 9) * -1);
-}
-
-.npm-icon {
-  background-image: url("../../../public/images/icons8-npm-48.png");
-  animation-delay: calc(15s / 12 * (12 - 10) * -1);
-}
-
-.NextJS-icon {
-  background-image: url("../../../public/images/icons8-nextjs-48.png");
-  animation-delay: calc(15s / 12 * (12 - 11) * -1);
-}
-
-.TypeScript-icon {
-  background-image: url("../../../public/images/icons8-typescript-48.png");
-  animation-delay: calc(15s / 12 * (12 - 12) * -1);
-}
-
-
-
-
-
-.tech-icon-name:nth-child(1) {
-  animation-delay: calc(15s / 12 * (12 - 1) * -1);
-}
-
-.tech-icon-name:nth-child(2) {
-  animation-delay: calc(15s / 12 * (12 - 2) * -1);
-}
-
-.tech-icon-name:nth-child(3) {
-  animation-delay: calc(15s / 12 * (12 - 3) * -1);
-}
-
-.tech-icon-name:nth-child(4) {
-  animation-delay: calc(15s / 12 * (12 - 4) * -1);
-}
-
-.tech-icon-name:nth-child(5) {
-  animation-delay: calc(15s / 12 * (12 - 5) * -1);
-}
-
-.tech-icon-name:nth-child(6) {
-  animation-delay: calc(15s / 12 * (12 - 6) * -1);
-}
-
-.tech-icon-name:nth-child(7) {
-  animation-delay: calc(15s / 12 * (12 - 7) * -1);
-}
-
-.tech-icon-name:nth-child(8) {
-  animation-delay: calc(15s / 12 * (12 - 8) * -1);
-}
-
-.tech-icon-name:nth-child(9) {
-  animation-delay: calc(15s / 12 * (12 - 9) * -1);
-}
-
-.tech-icon-name:nth-child(10) {
-  animation-delay: calc(15s / 12 * (12 - 10) * -1);
-}
-
-.tech-icon-name:nth-child(11) {
-  animation-delay: calc(15s / 12 * (12 - 11) * -1);
-}
-
-.tech-icon-name:nth-child(12) {
-  animation-delay: calc(15s / 12 * (12 - 12) * -1);
-}
-
-@media screen and (max-width: 1100px) {
-  .tech-icons-title {
-    font-size: 2.5rem;
-  }
-
-  .tech-icons-wrapper {
-    height: 140px;
-  }
-
-  .tech-icon {
-    width: 80px;
-    height: 80px;
-  }
+.icon-on-hover {
+  transition: all 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 870px) {
   .tech-icons-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  
   }
-
-  .tech-icons-wrapper {
-    height: 100px;
+  .icon-name {
+    display: none;
   }
 
   .tech-icon {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    justify-content: center;
+    padding-left: 0;
   }
 }

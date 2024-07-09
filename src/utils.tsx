@@ -78,19 +78,3 @@ export const findParent = (element: HTMLElement, className: string) => {
     element = element.parentElement;
   }
 };
-
-export const icons = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Angular",
-  "NextJS",
-  "HTML5",
-  "CSS3",
-  "Bootstrap",
-  "TailwindCSS",
-  "git",
-  "Jest",
-  "npm",
-  "firebase",
-];

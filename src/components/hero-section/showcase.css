@@ -1,7 +1,7 @@
 .showcase {
   width: 100%;
   padding: 0rem 2rem;
-  padding-top: 6rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -95,6 +95,8 @@
 .tab.selected {
   color: var(--high-contrast-text-primary);
   background-color: var(--borders-and-separators);
+  border: 1px solid var(--borders-and-separators-selected);
+
 }
 
 .tab:not(.selected):hover {

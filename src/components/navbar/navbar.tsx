@@ -12,6 +12,7 @@ type NavbarProps = {
 export const Navbar = (props: NavbarProps) => {
   const { shouldShow, scrollSelected } = props;
   const [canSelectNavLink, setCanSelectNavLink] = React.useState(false);
+  const navbar = document.querySelector(".navbar");
 
   const [links, setLinks] = React.useState(linksArray);
 
@@ -24,22 +25,21 @@ export const Navbar = (props: NavbarProps) => {
       );
 
       if (getSection) {
-        let scrollHeight = getSection.getBoundingClientRect().top + window.scrollY;
+        let scrollHeight =
+          getSection.getBoundingClientRect().top + window.scrollY;
 
         if (getSection.id === "Projects") {
           scrollHeight -= 400;
         } else if (getSection.id === "Contacts") {
           scrollHeight -= 200;
         } else {
-          scrollHeight = 0
+          scrollHeight = 0;
         }
-
 
         window.scrollTo({
           top: scrollHeight,
           behavior: "smooth",
-
-        })
+        });
       }
 
       if (target.classList.contains("navbar-link")) {
@@ -57,11 +57,9 @@ export const Navbar = (props: NavbarProps) => {
     const expandIcon = findParent(target, "expand-icon");
 
     if (expandIcon) {
-      const navbar = document.querySelector(".navbar");
       navbar?.classList.toggle("expanded");
 
       if (canSelectNavLink) {
-
         navbar?.classList.remove("show-expand-text");
 
         setTimeout(() => {
@@ -88,22 +86,24 @@ export const Navbar = (props: NavbarProps) => {
   }, [scrollSelected]);
 
   return (
-    <div
-      role="navigation"
-      aria-hidden={shouldShow ? "false" : "true"}
+    <nav
+      id=":0:-navigation"
+      aria-expanded={window.innerWidth <= 870 ? canSelectNavLink : undefined}
+      aria-hidden={window.innerWidth > 870 ? !shouldShow : undefined}
       onClick={handleOnClick}
       className={`${shouldShow ? "show" : "hide"} navbar`}
     >
       <span className="expand-icon">
-        < ExpandIconRight dir={canSelectNavLink ? "left" : "right"} />
+        <ExpandIconRight dir={canSelectNavLink ? "left" : "right"} />
       </span>
 
-      {links.map((link) => {
+      {links.map((link, index) => {
         const logo = link.text === "logo";
 
         if (logo) {
           return (
             <svg
+              aria-hidden={true}
               className="logo"
               key={link.text}
               viewBox="0 0 146 37"
@@ -128,6 +128,9 @@ export const Navbar = (props: NavbarProps) => {
         return (
           <span
             aria-label={link.text}
+            role="link"
+            id={`:0:-navigation-${index - 1}`}
+            aria-current={link.selected}
             key={link.text}
             className={`navbar-link ${link.selected ? "selected" : ""}`}
           >
@@ -135,6 +138,6 @@ export const Navbar = (props: NavbarProps) => {
           </span>
         );
       })}
-    </div>
+    </nav>
   );
 };

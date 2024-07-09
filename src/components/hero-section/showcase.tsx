@@ -38,18 +38,21 @@ export const Showcase = (props: any) => {
     }, 800);
   };
 
+  const getTabId = (text: string) =>
+    `tab-item-${text?.toString().toLowerCase().replace(" ", "-")}`;
+
   return (
     <div className="showcase" id="About-Me">
       <div className="showcase-introduction">
-        <h2 className="showcase-mid-headings">Hello Wanderer!</h2>
+        <h2 className="showcase-mid-headings" aria-label="Hello Wanderer" >Hello Wanderer!</h2>
         <h1 className=" typewriter typing-demo showcase-big-heading">
           My name is{" "}
           <span className="name-text">
-            <span className="name highlight-name">Stoyan</span>
-            <span className=" name highlight-name surname">Paskalev.</span>
+            <span className="name highlight-name" aria-label="Stoyan Paskalev">Stoyan</span>
+            <span className=" name highlight-name surname" aria-hidden="true">Paskalev.</span>
           </span>
         </h1>
-        <p className="showcase-paragraph paragraph">
+        <p className="showcase-paragraph paragraph" aria-label="Welcome to my adventures in the Website building World">
           Welcome to my adventures in the Website building World!
         </p>
       </div>
@@ -61,12 +64,13 @@ export const Showcase = (props: any) => {
             role="tablist"
             onClick={handleTabClick}
           >
-            {tabsInfo.map((tab, index) => {
+            {tabsInfo.map((tab) => {
               return (
                 <span
+                  aria-label={tab.title}
                   aria-controls={`tabstrip-r:0:-panel-id`}
                   role="tab"
-                  id={`tab-item-${tab.title?.toString().toLowerCase().replace(" ", "-")}`}
+                  id={getTabId(tab.title)}
                   key={tab.title}
                   aria-selected={tab.selected}
                   className={`tab${tab.selected ? " selected" : ""}`}
@@ -76,8 +80,17 @@ export const Showcase = (props: any) => {
               );
             })}
           </div>
-          <div id="tabstrip-r:0:-panel-id" role="tabpanel" className="tabstrip-content-container">
-            <div id={`tabstrip-r:0:-panel-id-${tab}`} className="tabstrip-content">{tabsInfo[tab].text}</div>
+          <div
+            id="tabstrip-r:0:-panel-id"
+            role="tabpanel"
+            className="tabstrip-content-container"
+          >
+            <div
+              id={`tabstrip-r:0:-panel-id-${tab}`}
+              className="tabstrip-content"
+            >
+              {tabsInfo[tab].text}
+            </div>
           </div>
         </div>
       </div>

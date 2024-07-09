@@ -197,7 +197,6 @@ export const Contact = () => {
               viewBox="0 0 130.2 130.2"
             >
               <circle
-                className="path circle"
                 fill="none"
                 stroke="#D06079"
                 strokeWidth="6"
@@ -207,7 +206,6 @@ export const Contact = () => {
                 r="62.1"
               />
               <line
-                className="path line"
                 fill="none"
                 stroke="#D06079"
                 strokeWidth="6"
@@ -219,7 +217,6 @@ export const Contact = () => {
                 y2="92.3"
               />
               <line
-                className="path line"
                 fill="none"
                 stroke="#D06079"
                 strokeWidth="6"
