@@ -3,6 +3,8 @@ import React from "react";
 export const HTMLIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="HTML"
       fill="none"
       height="40"
       viewBox="0 0 15 15"

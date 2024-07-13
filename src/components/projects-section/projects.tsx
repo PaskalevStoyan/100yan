@@ -9,8 +9,8 @@ export const ProjectSection = () => {
     <div className="projects-container">
       {/* <div className="projects-gradient"></div> */}
      <div>
-     <h1 className="projects-text">So called Projects / Adventures</h1>
-      <p className="projects-desc">Current collection of Projects and Mockups.</p>
+     <h1 className="projects-text">Projects.</h1>
+      <p className="projects-desc">Current adventures transformed in Projects.</p>
      </div>
       <div id="Projects" className="projects">
         <ProjectCard />

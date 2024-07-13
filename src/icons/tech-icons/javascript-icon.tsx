@@ -1,9 +1,10 @@
 import React from "react";
 
-export const JSIcon = (props: any) => {
+export const JSIcon = () => {
   return (
     <svg
-      {...props}
+      role="img"
+      aria-label="JavaScript"
       width="50"
       height="50"
       viewBox="0 0 24 24"

@@ -2,7 +2,7 @@ import React from "react";
 
 export const CodeIcon = () => {
   return (
-    <svg className="code-icon" width="50" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+    <svg role="img" aria-label="Code" className="code-icon" width="50" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
       <title />
       <g>
         <path d="M24.8452,25.3957a6.0129,6.0129,0,0,0-8.4487.7617L1.3974,44.1563a5.9844,5.9844,0,0,0,0,7.687L16.3965,69.8422a5.9983,5.9983,0,1,0,9.21-7.687L13.8068,48l11.8-14.1554A6,6,0,0,0,24.8452,25.3957Z"/>

@@ -3,6 +3,8 @@ import React from "react";
 export const PythonIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="Python"
       height="40"
       version="1.1"
       viewBox="0 0 512 512"

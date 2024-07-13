@@ -3,11 +3,12 @@ import React from "react";
 export const TSIcon = (props: any) => {
   return (
     <svg
+      role="img"
+      aria-label="TypeScript"
       fill="none"
       height="35"
       viewBox="0 0 15 15"
       width="35"
-
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

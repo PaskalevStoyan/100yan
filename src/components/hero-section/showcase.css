@@ -82,7 +82,7 @@
 }
 
 .tab {
-  color: var(--high-contrast-text-secondary);
+  color: var(--high-contrast-text-primary);
   padding: 0.75rem 3rem;
   cursor: pointer;
   user-select: none;
@@ -93,7 +93,6 @@
 }
 
 .tab.selected {
-  color: var(--high-contrast-text-primary);
   background-color: var(--borders-and-separators);
   border: 1px solid var(--borders-and-separators-selected);
 
@@ -181,6 +180,10 @@
     font-size: 3.25rem;
   }
 
+  .tabs-container {
+    justify-content: space-evenly;
+  }
+
   .surname {
     left: 355px;
     top: 50px;
@@ -229,11 +232,22 @@
   }
 
   .typing-demo {
-    width: 17.5ch;
+    width: 16.2ch;
   }
 
   .surname {
     left: 147px;
     top: 50px;
+  }
+
+  .tabstrip-container {
+    /* margin-left: -1rem; */
+  }
+  .tabs-container {
+    padding: 0.75rem;
+  }
+
+  .tab {
+    padding: 0.6rem;
   }
 }

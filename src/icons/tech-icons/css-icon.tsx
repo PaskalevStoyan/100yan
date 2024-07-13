@@ -3,6 +3,8 @@ import React from "react";
 export const CSSIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="CSS3"
       fill="none"
       height="40"
       viewBox="0 0 15 15"

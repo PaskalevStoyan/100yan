@@ -103,6 +103,7 @@ export const Navbar = (props: NavbarProps) => {
         if (logo) {
           return (
             <svg
+              role="img"
               aria-hidden={true}
               className="logo"
               key={link.text}

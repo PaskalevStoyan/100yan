@@ -104,9 +104,13 @@ export const ShowTechIcons = () => {
 
       findPathToFill.forEach((path: any) => {
         if (styleType === "fill") {
-          path.style.fill = "#eeeef0";
+          setTimeout(() => {
+            path.style.fill = "#eeeef0";
+          }, 1000);
         } else if (styleType === "stroke") {
-          path.style.stroke = "#eeeef0";
+          setTimeout(() => {
+            path.style.stroke = "#eeeef0";
+          }, 1000);
         }
       });
     }
@@ -114,7 +118,7 @@ export const ShowTechIcons = () => {
 
   return (
     <div className="tech-icons-container">
-      <h1 aria-label="Technologies I use" className="tech-icons-title">Technologies I use</h1>
+      <h1 aria-label="Technologies I use" className="tech-icons-title">My Building Tools</h1>
       <div className="tech-icons">
         {iconConfig.map((icon) => {
           return (
@@ -123,7 +127,6 @@ export const ShowTechIcons = () => {
               onMouseEnter={handleOnHover}
               onMouseLeave={handleOnBlur}
               key={icon.name}
-              aria-label={icon.name}
               className="tech-icon"
             >
               <span aria-hidden={true}>{icon.icon}</span>

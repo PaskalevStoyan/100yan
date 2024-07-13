@@ -8,7 +8,7 @@
 }
 
 .tech-icons-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--high-contrast-text-primary);
 }
 
@@ -49,7 +49,7 @@
 
 @media screen and (max-width: 870px) {
   .tech-icons-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   
   }
   .icon-name {

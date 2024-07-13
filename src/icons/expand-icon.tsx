@@ -17,6 +17,8 @@ export const ExpandIconRight = (props: any) => {
 
   return (
     <svg
+    role="img"
+    aria-label="Expand Icon"
       fill="none"
       width="30"
       height="30"

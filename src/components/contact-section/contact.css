@@ -127,7 +127,7 @@
   font-size: 1.1rem;
   padding: 0.75rem 1.25rem;
   background-color: var(--background-color);
-  color: var(--high-contrast-text-secondary);
+  color: var(--high-contrast-text-primary);
   border: 1px solid var(--borders-and-separators);
   border-radius: 10px;
   cursor: pointer;
@@ -427,14 +427,51 @@
 .contact-form-social {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: end;
   gap: 10px;
 }
+
 .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+}
+
+.contact-form-social-text {
+  position: relative;
+
+}
+
+.contact-form-social-text::after {
+  content: "";
+  position: absolute;
+  bottom: -0.4rem;
+  left: 0%;
+  width: 170px;
+  height: 2px;
+  background-color: var(--borders-and-separators-selected);
 }
 
 .linkedin-icon {
   margin-left: 0.25rem;
+}
+
+@media screen and (max-width: 870px) {
+  .contact-form-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .contact-form-title {
+    font-size: 2rem;
+  }
+
+  .contact-form-input,
+  .contact-form-textarea {
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
 }

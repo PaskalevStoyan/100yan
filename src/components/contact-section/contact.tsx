@@ -94,12 +94,17 @@ export const Contact = () => {
           </p>
         </div>
         <div className="contact-form-social">
-          <p>find me on</p>
-          <a href="https://github.com/PaskalevStoyan" target="_blank">
+          <p className="contact-form-social-text">Socials</p>
+          <a
+            aria-label="My Github"
+            href="https://github.com/PaskalevStoyan"
+            target="_blank"
+          >
             <GitHubIcon />
           </a>
           <Separator />
           <a
+            aria-label="My LinkedIn"
             href="https://www.linkedin.com/in/stoyan-paskalev-b7aa261a3/"
             target="_blank"
           >
@@ -116,6 +121,7 @@ export const Contact = () => {
               onChange={handleFormChange}
               onFocus={onFocus}
               onBlur={onBlur}
+              autoComplete="off"
               type="text"
               name="fullName"
               id="full-name"
@@ -131,6 +137,7 @@ export const Contact = () => {
               onChange={handleFormChange}
               onFocus={onFocus}
               onBlur={onBlur}
+              autoComplete="off"
               type="text"
               name="email"
               id="email"
@@ -146,6 +153,7 @@ export const Contact = () => {
               onChange={handleFormChange}
               onFocus={onFocus}
               onBlur={onBlur}
+              autoComplete="off"
               type="text"
               name="subject"
               id="subject"
@@ -161,6 +169,7 @@ export const Contact = () => {
               onChange={handleFormChange}
               onFocus={onFocus}
               onBlur={onBlur}
+              autoComplete="off"
               name="message"
               id="message"
               className="contact-form-textarea"
@@ -192,6 +201,7 @@ export const Contact = () => {
 
           <div className="email-error">
             <svg
+              role="img"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 130.2 130.2"
@@ -229,8 +239,8 @@ export const Contact = () => {
               />
             </svg>
             <p className="email-text-error">Bummer!</p>
-            <p className="email-text-error small">Something went wrong!</p>
-            <p className="email-text-error small">Please try again!</p>
+            <p className="email-text-error small">Something went wrong.</p>
+            <p className="email-text-error small">Please try again.</p>
           </div>
         </span>
       </div>

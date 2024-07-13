@@ -3,6 +3,8 @@ import React from "react";
 export const TailwindIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="Tailwind CSS"
       fill="none"
       height="40"
       viewBox="0 0 15 15"

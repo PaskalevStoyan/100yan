@@ -2,7 +2,7 @@ import React from "react";
 
 export const AngularIcon = () => {
   return (
-    <svg width="50" height="50" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <svg role="img" aria-label="Angular" width="50" height="50" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
       <rect fill="none" height="256" width="256" />
       <polygon
         className="icon-on-hover"

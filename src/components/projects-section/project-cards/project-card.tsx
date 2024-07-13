@@ -28,7 +28,7 @@ export const ProjectCard = () => {
     const cardBtn = parent?.querySelector(".card-btn-container");
 
     const isHover = (e) => e.parentElement.querySelector(":hover") === e;
-    
+
     if (!isHover(cardBtn) && !isHover(chipList)) {
       chipList?.classList.remove("show-chip-list");
       cardBtn?.classList.remove("show-card-btn");
@@ -46,29 +46,33 @@ export const ProjectCard = () => {
         >
           <div className="project-image" />
         </div>
+
+        <div className="card-btn-container">
+          <span className="card-btn">
+            <CodeIcon />
+          </span>
+          <span className="card-btn">
+            <ArrowRight />
+          </span>
+        </div>
+
+        <div className="chip-list">
+          <span className="chip">React</span>
+          <span className="chip">CSS3</span>
+          <span className="chip">CSS3</span>
+          <span className="chip">CSS3</span>
+          <span className="chip">HTML5</span>
+        </div>
       </div>
-      <div className="card-btn-container">
-        <span className="card-btn">
-          <CodeIcon />
-        </span>
-        <span className="card-btn">
-          <ArrowRight />
-        </span>
-      </div>
-      <div className="chip-list">
-        <span className="chip">React</span>
-        <span className="chip">CSS3</span>
-        <span className="chip">CSS3</span>
-        <span className="chip">CSS3</span>
-        <span className="chip">HTML5</span>
-      </div>
+
       <div className="card-project-text">
         <h3 className="project-name">Hover Me</h3>
         <br />
         <p className="project-desc">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
           nesciunt repudiandae officia repellat voluptates adipisci consectetur
-          magnam? Repellat, repellendus hic?
+          magnam? Repellat, repellendus hic? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+          nesciunt repudiandae officia repellat vol
         </p>
       </div>
     </div>

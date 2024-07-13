@@ -3,6 +3,8 @@ import React from "react";
 export const ArrowRight = () => {
   return (
     <svg
+      role="img"
+      aria-label="Arrow Right"
       className="arrow-right-icon"
       fill="none"
       height="50"

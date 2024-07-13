@@ -3,6 +3,8 @@ import React from "react";
 export const GitHubIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="Github"
       className="social-icon github-icon"
       enableBackground="new -1163 1657.697 56.693 56.693"
       version="1.1"

@@ -3,6 +3,8 @@ import React from "react";
 export const NPMIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="Node Package Manager"
       className="icon-on-hover"
       width="50"
       fill="#eeeef0"

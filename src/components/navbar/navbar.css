@@ -39,7 +39,7 @@
   font-size: 0.9rem;
   padding: 0.5rem;
   text-decoration: none;
-  color: var(--high-contrast-text-secondary);
+  color: var(--high-contrast-text-primary);
 
   color-scheme: light;
   text-align: center;
@@ -53,7 +53,6 @@
   padding: 0.5rem;
   border: 1px solid var(--borders-and-separators-selected);
   border-radius: 9999px;
-  color: var(--high-contrast-text-primary);
 }
 
 .navbar .navbar-link.selected::after {
@@ -133,6 +132,7 @@
     width: 50px;
     height: 50px;
 
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 0;
 
     border-radius: 50px;
@@ -146,6 +146,7 @@
 
   .navbar.expanded {
     width: 330px;
+    background-color: var(--background-color);
   }
 
   .expand-icon {

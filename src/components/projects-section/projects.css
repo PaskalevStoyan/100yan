@@ -17,6 +17,7 @@
 }
 
 .projects-text {
+  text-align: end;
   font-size: 3rem;
 }
 
@@ -25,22 +26,12 @@
   color: var(--high-contrast-text-secondary)
 }
 
-.projects-desc::before {
-  content: "";
-  position: absolute;
-  bottom: -0.5rem;
-  left: 24.5%;
-  width: 30px;
-  height: 2px;
-  background-color: var(--solid-borders-and-separators);
-}
-
 .projects-desc::after {
   content: "";
   position: absolute;
   bottom: -0.5rem;
-  left: 38.6%;
-  width: 30px;
+  left: 18.7%;
+  width: 85px;
   height: 2px;
   background-color: var(--solid-borders-and-separators);
 }
@@ -56,4 +47,23 @@
       #2d4176 6%,
       #272935 80%,
       transparent)
+}
+
+
+@media screen and (max-width: 670px) {
+  
+}
+
+@media screen and (max-width: 670px) {
+  .projects-desc {
+    font-size: 0.9rem;
+  }
+
+  .projects-desc::after {
+    width: 75px;
+  }
+
+  .projects-container {
+    gap: 5rem;
+  }
 }
