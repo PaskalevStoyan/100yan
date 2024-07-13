@@ -63,8 +63,9 @@ const iconConfig: Array<any> = [
 export const ShowTechIcons = () => {
   const handleOnHover = (event) => {
     const target = event.target;
+
     const getIconConfig = iconConfig.find(
-      (icon) => icon.name === target.getAttribute('aria-label')
+      (_, index) => index === Number(target.getAttribute(`icon-index`))
     );
 
     const findPathToFill = Array.from(
@@ -92,7 +93,7 @@ export const ShowTechIcons = () => {
   const handleOnBlur = (event) => {
     const target = event.target;
     const getIconConfig = iconConfig.find(
-      (icon) => icon.name === target.getAttribute('aria-label')
+      (_, index) => index === Number(target.getAttribute("icon-index"))
     );
 
     const findPathToFill = Array.from(
@@ -103,13 +104,17 @@ export const ShowTechIcons = () => {
       const styleType = getIconConfig?.type;
 
       findPathToFill.forEach((path: any) => {
+        const currentColor = getComputedStyle(document.body).getPropertyValue(
+          "--high-contrast-text-primary"
+        );
+
         if (styleType === "fill") {
           setTimeout(() => {
-            path.style.fill = "#eeeef0";
+            path.style.fill = null;
           }, 1000);
         } else if (styleType === "stroke") {
           setTimeout(() => {
-            path.style.stroke = "#eeeef0";
+            path.style.stroke = null;
           }, 1000);
         }
       });
@@ -118,12 +123,14 @@ export const ShowTechIcons = () => {
 
   return (
     <div className="tech-icons-container">
-      <h1 aria-label="Technologies I use" className="tech-icons-title">My Building Tools</h1>
+      <h1 aria-label="Technologies I use" className="tech-icons-title">
+        My Building Tools
+      </h1>
       <div className="tech-icons">
-        {iconConfig.map((icon) => {
+        {iconConfig.map((icon, index) => {
           return (
             <div
-              icon-color={`${icon.color}`}
+              icon-index={index}
               onMouseEnter={handleOnHover}
               onMouseLeave={handleOnBlur}
               key={icon.name}

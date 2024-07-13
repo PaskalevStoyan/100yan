@@ -32,19 +32,27 @@
   align-items: center;
   gap: 0.75rem;
 
-  background-color: rgba(60, 61, 65, 0.2);
+  background-color: var(--background-color);
   border: 1px solid var(--borders-and-separators);
 
   transition: all 0.5s ease-in-out;
 }
 
 .tech-icon:hover {
-  background-color: rgba(60, 61, 65, 0.678);
+  background-color: var(--borders-and-separators);
   border-color: var(--borders-and-separators-selected)
 }
 
 .icon-on-hover {
   transition: all 0.2s ease-in-out;
+}
+
+.tech-icon-fill {
+  fill: var(--high-contrast-text-primary)
+}
+
+.tech-icon-stroke {
+  stroke: var(--high-contrast-text-primary)
 }
 
 @media screen and (max-width: 870px) {

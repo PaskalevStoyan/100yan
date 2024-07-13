@@ -5,9 +5,8 @@ export const NPMIcon = () => {
     <svg
       role="img"
       aria-label="Node Package Manager"
-      className="icon-on-hover"
+      className="icon-on-hover tech-icon-fill"
       width="50"
-      fill="#eeeef0"
       viewBox="0 0 576 512"
       xmlns="http://www.w3.org/2000/svg"
     >

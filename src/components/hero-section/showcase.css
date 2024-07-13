@@ -63,7 +63,7 @@
 
 .tabstrip-container {
   flex: 1;
-  background-color: rgba(60, 61, 65, 0.2);
+  background-color: var(--background-color);
   backdrop-filter: blur(10px);
   border: 1px solid var(--borders-and-separators);
 

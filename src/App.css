@@ -1,9 +1,16 @@
-.color-box {
+body.dark-theme .color-box {
   background-image: linear-gradient(to bottom, #2d4176, transparent);
+  width: 100%;
+  height: 500px;
+}
+
+body.light-theme .color-box {
+  background-image: linear-gradient(to bottom, #BDD1FF, transparent);
   width: 100%;
   height: 500px;
 }
 
 .App {
  background-color: var(--app-background);
+ position: relative;
 }

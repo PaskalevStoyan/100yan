@@ -7,10 +7,13 @@
   gap: 10rem;
   flex-wrap: wrap;
 
-  background: rgb(36, 58, 117);
   background: linear-gradient(to top, #2d4176, transparent);
 
   padding: 3rem;
+}
+
+body.light-theme .contact-form-container {
+  background: linear-gradient(to top, #bdd1ff, transparent);
 }
 
 .contact-form {
@@ -32,7 +35,6 @@
   padding-top: 5.5rem;
 }
 
-
 .contact-form-input,
 .contact-form-textarea {
   font-size: 16px;
@@ -44,9 +46,17 @@
   height: 55px;
   padding: 0 20px;
   padding-top: 20px;
-  background: var(--app-background);
+  background: var(--background-color);
   color: var(--high-contrast-text-primary);
-  box-shadow: 9px 9px 8px rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,  
+  100%, 0.075),
+  /* shadow ring 👇 */
+  0 0 0 1px hsla(0, 0%, 0%, 0.05),
+  /* multiple soft shadows 👇 */
+  0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+  0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+  0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+
   border-radius: 10px;
   box-sizing: border-box;
 }
@@ -106,16 +116,25 @@
   -webkit-transition: 0.2s ease all;
 }
 
-.contact-form-input.focus~.contact-form-label,
-.contact-form-textarea.focus~.contact-form-label {
+.contact-form-input.focus ~ .contact-form-label,
+.contact-form-textarea.focus ~ .contact-form-label {
   top: 6px;
   left: 6px;
   font-size: 12px;
   color: var(--high-contrast-text-secondary);
 }
 
-.contact-form-textarea.focus~.contact-form-label {
-  background: var(--app-background);
+.github-icon,
+.linkedin-text {
+  fill: var(--high-contrast-text-primary)
+}
+
+.linkedin-border {
+  fill: var(--solid-borders-and-separators)
+}
+
+.contact-form-textarea.focus ~ .contact-form-label {
+  background: var(--background-color);
   height: 25px;
   top: 0px;
   margin-top: 10px;
@@ -140,13 +159,14 @@
   background-color: var(--borders-and-separators);
   color: var(--high-contrast-text-secondary);
   cursor: not-allowed;
-  filter: blur(3px)
+  filter: blur(3px);
 }
 
 .form-button:not(.form-button[disabled]):hover {
   color: var(--high-contrast-text-primary);
   transform: scale(1.05);
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
 }
 
 .contact-form-title {
@@ -166,7 +186,8 @@
   margin-bottom: 2rem;
 }
 
-.contact-form-input.error~.contact-form-label {
+.contact-form-input.error ~ .contact-form-label,
+.contact-form-textarea.error ~ .contact-form-label {
   color: var(--error-color-text);
 }
 
@@ -177,9 +198,7 @@
   border-left: 2px solid var(--error-border-color);
 
   animation: shake 0.1s ease-in-out 0s 2;
-
 }
-
 
 @keyframes shake {
   0% {
@@ -217,10 +236,9 @@
   align-items: center;
   z-index: 100;
 
-  box-shadow: 9px 9px 8px rgba(0, 0, 0, .5);
+  box-shadow: 9px 9px 8px rgba(0, 0, 0, 0.5);
 
   border-radius: 10px;
-
 }
 
 .contact-form.show-overlay .form-overlay {
@@ -263,34 +281,30 @@
 
 @keyframes loading-bounce {
   0% {
-    transform: scale(1, 0.7)
+    transform: scale(1, 0.7);
   }
 
   40% {
-    transform: scale(0.8, 1.2)
+    transform: scale(0.8, 1.2);
   }
 
   60% {
-    transform: scale(1, 1)
+    transform: scale(1, 1);
   }
 
   100% {
-    bottom: 140px
+    bottom: 140px;
   }
 }
 
 @keyframes loading-step {
   0% {
-    box-shadow: 0 10px 0 rgba(0, 0, 0, 0),
-      0 10px 0 #fff,
-      -35px 50px 0 #fff,
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0), 0 10px 0 #fff, -35px 50px 0 #fff,
       -70px 90px 0 #fff;
   }
 
   100% {
-    box-shadow: 0 10px 0 #fff,
-      -35px 50px 0 #fff,
-      -70px 90px 0 #fff,
+    box-shadow: 0 10px 0 #fff, -35px 50px 0 #fff, -70px 90px 0 #fff,
       -70px 90px 0 rgba(0, 0, 0, 0);
   }
 }
@@ -379,9 +393,7 @@
 
 .email-text-error.small {
   font-size: 1.5rem;
-
 }
-
 
 @-webkit-keyframes dash {
   0% {
@@ -423,7 +435,6 @@
   }
 }
 
-
 .contact-form-social {
   display: flex;
   justify-content: flex-end;
@@ -438,7 +449,6 @@
 
 .contact-form-social-text {
   position: relative;
-
 }
 
 .contact-form-social-text::after {

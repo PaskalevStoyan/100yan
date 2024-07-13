@@ -91,6 +91,10 @@
   margin-right: 3rem;
 }
 
+.logo .logo-path{
+  fill: var(--high-contrast-text-primary);
+}
+
 .expand-icon {
   display: none;
 }
