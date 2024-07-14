@@ -39,7 +39,7 @@
 }
 
 .tech-icon:hover {
-  background-color: var(--borders-and-separators);
+  background-color: var(--background-color);
   border-color: var(--borders-and-separators-selected)
 }
 

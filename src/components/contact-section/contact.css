@@ -59,6 +59,9 @@ body.light-theme .contact-form-container {
 
   border-radius: 10px;
   box-sizing: border-box;
+
+ transition: all 0.5s ease-in-out;
+
 }
 
 .contact-form.show-overlay .contact-form-input,

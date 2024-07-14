@@ -49,26 +49,39 @@ function App() {
 
   React.useEffect(() => {
     const theme = localStorage.getItem("100yan-theme");
-    document.body.classList.add(`${theme}-theme`);
+  
+    if (theme) {
+      document.body.classList.add(`${theme}-theme`);
+    } else {
+      document.body.classList.add(`light-theme`);
+    }
   }, []);
 
   return (
-    <div className="App">
-      <div className="color-box-wrapper">
-        <div className="color-box"></div>
+    <>
+      <div className="App">
+        <div className="color-box-wrapper">
+          <div className="color-box"></div>
+        </div>
+
+        <div className="parallax-stars-bg">
+          <div className="stars"></div>
+          <div className="stars2"></div>
+          <div className="stars3"></div>
+        </div>
+
+        <Navbar scrollSelected={selectedLink} shouldShow={shouldShowNavbar} />
+
+        <ThemeSwitch />
+
+        <Container>
+          <Showcase />
+          <ShowTechIcons />
+          <ProjectSection />
+        </Container>
+        <Contact />
       </div>
-
-      <Navbar scrollSelected={selectedLink} shouldShow={shouldShowNavbar} />
-
-      <ThemeSwitch />
-
-      <Container>
-        <Showcase />
-        <ShowTechIcons />
-        <ProjectSection />
-      </Container>
-      <Contact />
-    </div>
+    </>
   );
 }
 

@@ -110,6 +110,8 @@
 
 
 .chip-list {
+  width: 90%;
+
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -131,7 +133,7 @@
 }
 
 .chip {
-  color: var(--high-contrast-text-primary);
+  color: #fff;
   font-size: 0.9rem;
   text-align: center;
   padding: 0.5rem 1rem;

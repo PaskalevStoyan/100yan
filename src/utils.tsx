@@ -27,7 +27,7 @@ export const tabs: Array<TabsProps> = [
     title: "About Me",
     text: (
       <p>
-        Born and raised in Dobrich, Bulgaria and with 25 as my current age
+        Born and raised in Bulgaria and currently with 25 as my current age
         level, I'm what you call{" "}
         <span className="text-highlight">
           a builder of things around the Internet
@@ -40,13 +40,18 @@ export const tabs: Array<TabsProps> = [
     selected: true,
   },
   {
-    title: "Career Path",
+    title: "Building Journey",
     text: (
       <p>
-        My journey began <span className="text-highlight">around 2017</span> and
-        since then my fingers are bind to a keyboard. In 2018 I started my
-        Bachelor Degree in New Bulgarian University. Since 2021 i've been
-        working in Progress Software as a Software Developer.
+        My journey inside the{" "}
+        <span className="text-highlight">Programming World</span> began in 2017,{" "}
+        which led to my first "
+        <span className="text-highlight">Hello World</span>". In 18' I started
+        pursuing my university degree in "
+        <span className="text-highlight">Computer Science</span> and in 21' I
+        started working as a Software Developer in{" "}
+        <span className="text-highlight">Progress Software</span> with the
+        mission to create beautiful web components.
       </p>
     ),
     selected: false,
@@ -55,14 +60,11 @@ export const tabs: Array<TabsProps> = [
     title: "Hobbies",
     text: (
       <p>
-        Born and raised in Dobrich, Bulgaria and with 25 as my current age
-        level, I'm what you call{" "}
-        <span className="text-highlight">
-          a builder of things around the Internet
-        </span>{" "}
-        or for short <span className="text-highlight">Front End Developer</span>
-        . Those things are known as websites and my passion is to build
-        beautiful, personal and functional websites
+        When I'm not behind the keyboard, I'm usually found in the{" "}
+        <span className="text-highlight">Gym</span>, mounted on a{" "}
+        <span className="text-highlight">Snowboard</span> or taking care of my
+        car - <span className="text-highlight">Honda Civic EJ6</span>. 15 years of my youth went in training as I was a professional{" "}
+        <span className="text-highlight">Karateka</span> for the National Team Of Bulgaria.
       </p>
     ),
     selected: false,
