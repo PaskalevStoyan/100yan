@@ -65,7 +65,7 @@ export const ShowTechIcons = () => {
     const target = event.target;
 
     const getIconConfig = iconConfig.find(
-      (_, index) => index === Number(target.getAttribute(`icon-index`))
+      (icon) => icon.name === target.getAttribute(`icon-name`)
     );
 
     const findPathToFill = Array.from(
@@ -93,7 +93,7 @@ export const ShowTechIcons = () => {
   const handleOnBlur = (event) => {
     const target = event.target;
     const getIconConfig = iconConfig.find(
-      (_, index) => index === Number(target.getAttribute("icon-index"))
+      (icon) => icon.name === target.getAttribute(`icon-name`)
     );
 
     const findPathToFill = Array.from(
@@ -104,18 +104,10 @@ export const ShowTechIcons = () => {
       const styleType = getIconConfig?.type;
 
       findPathToFill.forEach((path: any) => {
-        const currentColor = getComputedStyle(document.body).getPropertyValue(
-          "--high-contrast-text-primary"
-        );
-
         if (styleType === "fill") {
-          setTimeout(() => {
-            path.style.fill = null;
-          }, 1000);
+          setTimeout(() => (path.style.fill = null), 1000);
         } else if (styleType === "stroke") {
-          setTimeout(() => {
-            path.style.stroke = null;
-          }, 1000);
+          setTimeout(() => (path.style.stroke = null), 1000);
         }
       });
     }
@@ -130,7 +122,7 @@ export const ShowTechIcons = () => {
         {iconConfig.map((icon, index) => {
           return (
             <div
-              icon-index={index}
+              icon-name={icon.name}
               onMouseEnter={handleOnHover}
               onMouseLeave={handleOnBlur}
               key={icon.name}
