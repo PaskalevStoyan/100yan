@@ -19,9 +19,9 @@
   border-color: var(--borders-and-separators);
   border-width: 1px;
   border-style: solid;
-  border-radius: 50px;
+  border-radius: var(--l-border-radius);
 
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.4);
 
   transition: transform 0.5s ease-in-out;
 }
@@ -52,7 +52,7 @@
 .navbar .navbar-link.selected {
   padding: 0.5rem;
   border: 1px solid var(--borders-and-separators-selected);
-  border-radius: 9999px;
+  border-radius: var(--l-border-radius);
 }
 
 .navbar .navbar-link.selected::after {
@@ -91,7 +91,7 @@
   margin-right: 3rem;
 }
 
-.logo .logo-path{
+.logo .logo-path {
   fill: var(--high-contrast-text-primary);
 }
 
@@ -133,13 +133,11 @@
     left: 2%;
     max-width: unset;
 
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 
     background-color: rgba(0, 0, 0, 0.5);
     padding: 0;
-
-    border-radius: 50px;
 
     transition: all 0.6s ease-in-out;
   }
@@ -156,12 +154,42 @@
   .expand-icon {
     position: absolute;
     display: block;
-    top: 10px;
-    left: 9px;
+    top: -3px;
+    left: -18px;
 
     cursor: pointer;
 
     transition: all 0.4s ease-in;
+  }
+
+  .bars {
+    width: 80px;
+    cursor: pointer;
+  }
+  .bars .line {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-linecap: square;
+    transition: stroke-dasharray 500ms, stroke-dashoffset 500ms;
+  }
+  .bars .line.top {
+    stroke-dasharray: 40 172;
+  }
+  .bars .line.middle {
+    stroke-dasharray: 40 111;
+  }
+  .bars .line.bottom {
+    stroke-dasharray: 40 172;
+  }
+  .bars.active .top {
+    stroke-dashoffset: -132px;
+  }
+  .bars.active .middle {
+    stroke-dashoffset: -71px;
+  }
+  .bars.active .bottom {
+    stroke-dashoffset: -132px;
   }
 
   .navbar-link {
@@ -174,7 +202,6 @@
   .navbar.show-expand-text .navbar-link {
     visibility: visible;
     opacity: 1;
-    /* font-size: 0.75rem; */
   }
 
   .navbar.show-expand-text .navbar-link[aria-label="About Me"] {

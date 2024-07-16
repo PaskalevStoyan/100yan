@@ -15,17 +15,15 @@
 }
 
 .project-card-image {
-
   width: 100%;
   height: 100%;
-  box-shadow: 9px 9px 8px rgba(0, 0, 0, .5);
-
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.4);
 
   -webkit-filter: grayscale(0) blur(0);
   filter: grayscale(0) blur(0);
-  -webkit-transition: .3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
 
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .project-card-image.active-card {
@@ -43,17 +41,17 @@
 .card-project-text {
   width: fit-content;
   height: 100px;
+  text-align: center;
 }
 
-
-
 .project-name {
-  font-size: 1.75rem;
+  font-size: var(--m-typography);
   color: var(--high-contrast-text-primary);
 }
 
 .project-desc {
-  font-size: 1rem;
+  font-size: var(--p-typography);
+  /* word-wrap: break-word; */
   color: var(--high-contrast-text-secondary);
 }
 
@@ -73,22 +71,35 @@
   transition: 0.5s ease-in-out;
 }
 
-
 .card-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
   border: none;
   cursor: pointer;
   transform: scale(0.8);
   transition: 0.2s ease-in-out;
 }
 
+.card-btn:hover {
+  transform: scale(1.1);
+}
+
+.card-btn-text {
+  font-size: var(--p-typography);
+  color: #fff;
+}
 
 .code-icon {
-  fill: #fff;
+  stroke: #fff;
   transition: 0.2s ease-in-out;
 }
 
 .code-icon:hover {
-  fill: var(--solid-h-c-text-primary);
+  stroke: var(--solid-h-c-text-primary);
 }
 
 .arrow-right-icon {
@@ -101,17 +112,10 @@
 }
 
 .code-icon:hover {
-  stroke: var(--solid-h-c-text-primary)
+  stroke: var(--solid-h-c-text-primary);
 }
-
-.card-btn:hover {
-  transform: scale(1.1);
-}
-
 
 .chip-list {
-  width: 90%;
-
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -119,7 +123,7 @@
   flex-wrap: wrap;
   position: absolute;
   top: 70%;
-  left: 3%;
+  left: 4.5%;
 
   gap: 1rem;
 
@@ -133,12 +137,15 @@
 }
 
 .chip {
-  color: #fff;
   font-size: 0.9rem;
   text-align: center;
-  padding: 0.5rem 1rem;
-  border: 3px solid var(--solid-borders-and-separators);
-  border-radius: 15px;
+  padding: 0.5rem;
+
+  color: var(--high-contrast-text-primary);
+  background-color: var(--background-color);
+
+  border: 1px solid var(--borders-and-separators-selected);
+  border-radius: var(--s-border-radius);
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -146,17 +153,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  transition: all 0.3s ease-in;
 }
-
-.chip:hover {
-  transform: scale(1.1);
-  background-color: var(--borders-and-separators-selected);
-  color: var(--solid-h-c-text-primary);
-  border-color: var(--borders-and-separators-selected);
-}
-
 
 @media screen and (max-width: 670px) {
   .card-container {
@@ -171,18 +168,22 @@
 
 @media screen and (max-width: 540px) {
   .chip-list {
-    top: 65%;
+    top: 70%;
   }
 
   .chip {
-    font-size: 0.8rem;    
+    font-size: 0.8rem;
   }
 
   .project-name {
-    font-size: 1.75rem;
+    font-size: var(--s-typography);
   }
 
   .project-desc {
-    font-size: 0.9rem;
+    font-size: var(--p-s-typography);
+  }
+
+  .card-btn-text {
+    font-size: var(--p-s-typography);
   }
 }

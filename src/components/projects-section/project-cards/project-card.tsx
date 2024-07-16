@@ -50,9 +50,11 @@ export const ProjectCard = () => {
         <div className="card-btn-container">
           <span className="card-btn">
             <CodeIcon />
+            <p className="card-btn-text">See Code</p>
           </span>
           <span className="card-btn">
             <ArrowRight />
+            <p className="card-btn-text">Live Demo</p>
           </span>
         </div>
 

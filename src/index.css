@@ -7,6 +7,23 @@
 body {
   font-family: 'Inter', sans-serif;
   color: var(--high-contrast-text-primary);
+
+  --xl-typography: 3rem;
+  --x-typography: 2.5rem;
+  --m-typography: 2rem;
+  --s-typography: 1.5rem;
+  --xs-typography: 1.25rem;
+
+  --p-typography: 1.15rem;
+  --p-s-typography: 0.9rem;
+  --p-xs-typography: 0.75rem;
+
+  --l-border-radius: 50px;
+  --m-border-radius: 30px;
+  --s-border-radius: 10px;
+
+
+  --name-typography: 4rem;
 }
 
 body.dark-theme {

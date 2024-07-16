@@ -2,7 +2,7 @@
 import React from "react";
 import "./navbar.css";
 import { findParent, linksArray } from "../../utils";
-import { ExpandIconRight } from "../../icons/expand-icon";
+import { ExpandIcon } from "../../icons/expand-icon";
 import { LogoIcon } from "../../icons/logo-icon";
 
 type NavbarProps = {
@@ -95,14 +95,14 @@ export const Navbar = (props: NavbarProps) => {
       className={`${shouldShow ? "show" : "hide"} navbar`}
     >
       <span className="expand-icon">
-        <ExpandIconRight dir={canSelectNavLink ? "left" : "right"} />
+        <ExpandIcon className={`${canSelectNavLink ? "active" : ""}`} />
       </span>
 
       {links.map((link, index) => {
         const logo = link.text === "logo";
 
         if (logo) {
-          return <LogoIcon key={link.text} />
+          return <LogoIcon key={link.text} />;
         }
         return (
           <span

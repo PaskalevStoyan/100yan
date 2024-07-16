@@ -17,7 +17,7 @@ function App() {
 
   React.useEffect(() => {
     const handleScroll = (_: any) => {
-      if (window.innerWidth >= 870) {
+      if (window.innerWidth > 870) {
         setCurrentScrollPosition(window.scrollY);
 
         if (currentScrollPosition > lastScrollPosition) {

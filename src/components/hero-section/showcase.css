@@ -21,19 +21,21 @@
 
 .showcase-big-heading {
   position: relative;
-  font-size: 3.25rem;
+  font-size: var(--xl-typography);
   height: 150px;
   margin-bottom: 1rem;
 }
 
 .showcase-mid-headings {
-  font-size: 1.5rem;
+  text-align: center;
+  font-size: var(--m-typography);
 }
 
 .showcase-paragraph {
-  font-size: 1.5rem;
+  font-size: var(--s-typography);
   margin-bottom: 2rem;
 
+  text-align: center;
   animation: fadeIn ease 4.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -49,7 +51,7 @@
 }
 
 .name-text {
-  font-size: 4rem;
+  font-size: var(--name-typography);
 }
 
 .surname {
@@ -89,7 +91,7 @@
   cursor: pointer;
   user-select: none;
   transition: all 0.35s ease-out;
-
+  font-size: var(--xs-typography);
   border-top-left-radius: 30px;
   border-bottom-right-radius: 10px;
 }
@@ -112,7 +114,7 @@
 .tabstrip-content {
   color: var(--high-contrast-text-primary);
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: var(--p-typography);
 
   transition: all 0.5s ease-out;
 }
@@ -174,12 +176,12 @@
 
 @media screen and (max-width: 870px) {
   .showcase-big-heading {
-    font-size: 2.5rem;
+    font-size: var(--x-typography);
     margin-bottom: 0;
   }
 
   .name-text {
-    font-size: 3.25rem;
+    font-size: var(--xl-typography);
   }
 
   .tabs-container {
@@ -194,7 +196,7 @@
 
 @media screen and (max-width: 670px) {
   .showcase-big-heading {
-    font-size: 2.5rem;
+    font-size: var(--x-typography);
   }
 
   .typing-demo {
@@ -202,15 +204,15 @@
   }
 
   .showcase-mid-headings {
-    font-size: 1.5rem;
+    font-size: var(--s-typography);
   }
 
   .name-text {
-    font-size: 3.25rem;
+    font-size: var(--xl-typography);
   }
 
   .showcase-paragraph {
-    font-size: 1.05rem;
+    font-size: var(--p-typography);
   }
 
   .surname {
@@ -219,19 +221,23 @@
   }
 
   .tab {
-    font-size: 0.8rem;
+    font-size: var(--p-typography);
     padding: 0.5rem 1.5rem;
   }
 }
 
 @media screen and (max-width: 520px) {
   .showcase-big-heading {
-    font-size: 2rem;
+    font-size: var(--m-typography);
+    height: 115px;
+    
   }
 
   .name-text {
-    font-size: 2.5rem;
+    font-size: var(--x-typography);
   }
+
+
 
   .typing-demo {
     width: 16.2ch;
@@ -248,5 +254,53 @@
 
   .tab {
     padding: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .showcase {
+    padding: 0 1rem;
+  }
+  
+  .tabs-container {
+    padding: 1rem 0rem;
+  }
+
+  .tab.selected {
+    position: relative;
+    border: none;
+    background-color: unset;
+
+    transition: all 0.35s ease-out;
+  }
+
+  .tab.selected::after {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    opacity: 1;
+    width: 50%;
+    height: 2px;
+    background-color: var(--solid-borders-and-separators);
+    bottom: 7%;
+    left: 25%;
+
+    transition: all 0.5s ease-out;
+  }
+
+  .tab {
+    font-size: 1rem;
+  }
+
+  .tab::after {
+    content: '';
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .tabstrip-content {
+    font-size: 1rem;
+    text-align: center;
   }
 }

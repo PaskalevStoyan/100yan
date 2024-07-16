@@ -6,8 +6,6 @@ export const GitHubIcon = () => {
       role="img"
       aria-label="Github"
       className="social-icon github-icon"
-      enableBackground="new -1163 1657.697 56.693 56.693"
-      version="1.1"
       fill="#D5E2FF"
       viewBox="-1163 1657.697 56.693 56.693"
       xmlns="http://www.w3.org/2000/svg"

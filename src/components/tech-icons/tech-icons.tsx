@@ -62,54 +62,89 @@ const iconConfig: Array<any> = [
 
 export const ShowTechIcons = () => {
   const handleOnHover = (event) => {
-    const target = event.target;
+    if (window.innerWidth > 870) {
+      const target = event.target;
 
-    const getIconConfig = iconConfig.find(
-      (icon) => icon.name === target.getAttribute(`icon-name`)
-    );
+      const getIconConfig = iconConfig.find(
+        (icon) => icon.name === target.getAttribute(`icon-name`)
+      );
 
-    const findPathToFill = Array.from(
-      target.querySelectorAll(".icon-on-hover")
-    );
+      const findPathToFill = Array.from(
+        target.querySelectorAll(".icon-on-hover")
+      );
 
-    if (findPathToFill) {
-      const styleType = getIconConfig?.type;
-      const color = getIconConfig?.color;
+      if (findPathToFill) {
+        const styleType = getIconConfig?.type;
+        const color = getIconConfig?.color;
 
-      findPathToFill.forEach((path: any, index: number) => {
-        if (styleType === "fill") {
-          path.style.fill = color;
-        } else if (styleType === "stroke") {
-          if (getIconConfig.name === "Figma") {
-            path.style.stroke = getIconConfig.color[index];
-          } else {
-            path.style.stroke = color;
+        findPathToFill.forEach((path: any, index: number) => {
+          if (styleType === "fill") {
+            path.style.fill = color;
+          } else if (styleType === "stroke") {
+            if (getIconConfig.name === "Figma") {
+              path.style.stroke = getIconConfig.color[index];
+            } else {
+              path.style.stroke = color;
+            }
           }
-        }
-      });
+        });
+      }
     }
   };
 
-  const handleOnBlur = (event) => {
-    const target = event.target;
-    const getIconConfig = iconConfig.find(
-      (icon) => icon.name === target.getAttribute(`icon-name`)
-    );
+  React.useEffect(() => {
+    if (window.innerWidth <= 870) {
+      iconConfig.forEach((icon, index) => {
+        const findIcon = document.querySelector(
+          `[icon-name="${icon.name}"]`
+        ) as any;
 
-    const findPathToFill = Array.from(
-      target.querySelectorAll(".icon-on-hover")
-    );
+        const findPathToFill = Array.from(
+          findIcon.querySelectorAll(".icon-on-hover")
+        );
 
-    if (findPathToFill) {
-      const styleType = getIconConfig?.type;
+        if (findPathToFill) {
+          const styleType = icon.type;
+          const color = icon.color;
 
-      findPathToFill.forEach((path: any) => {
-        if (styleType === "fill") {
-          setTimeout(() => (path.style.fill = null), 1000);
-        } else if (styleType === "stroke") {
-          setTimeout(() => (path.style.stroke = null), 1000);
+          findPathToFill.forEach((path: any, index: number) => {
+            if (styleType === "fill") {
+              path.style.fill = color;
+            } else if (styleType === "stroke") {
+              if (icon.name === "Figma") {
+                path.style.stroke = icon.color[index];
+              } else {
+                path.style.stroke = color;
+              }
+            }
+          });
         }
       });
+    }
+  }, []);
+
+  const handleOnBlur = (event) => {
+    if (window.innerWidth > 870) {
+      const target = event.target;
+      const getIconConfig = iconConfig.find(
+        (icon) => icon.name === target.getAttribute(`icon-name`)
+      );
+
+      const findPathToFill = Array.from(
+        target.querySelectorAll(".icon-on-hover")
+      );
+
+      if (findPathToFill) {
+        const styleType = getIconConfig?.type;
+
+        findPathToFill.forEach((path: any) => {
+          if (styleType === "fill") {
+            setTimeout(() => (path.style.fill = null), 1000);
+          } else if (styleType === "stroke") {
+            setTimeout(() => (path.style.stroke = null), 1000);
+          }
+        });
+      }
     }
   };
 
@@ -121,15 +156,17 @@ export const ShowTechIcons = () => {
       <div className="tech-icons">
         {iconConfig.map((icon, index) => {
           return (
-            <div
-              icon-name={icon.name}
-              onMouseEnter={handleOnHover}
-              onMouseLeave={handleOnBlur}
-              key={icon.name}
-              className="tech-icon"
-            >
-              <span aria-hidden={true}>{icon.icon}</span>
-              <span className="icon-name">{icon.name}</span>
+            <div key={icon.name} className="tech-icons-wrapper">
+              <div
+                icon-name={icon.name}
+                onMouseEnter={handleOnHover}
+                onMouseLeave={handleOnBlur}
+                className="tech-icon"
+              >
+                <span aria-hidden={true}>{icon.icon}</span>
+                <span className="icon-name">{icon.name}</span>
+              </div>
+              <p className="tech-icons-wrapper-text">{icon.name}</p>
             </div>
           );
         })}
