@@ -72,12 +72,12 @@ body.light-theme .contact-form-container {
 }
 
 .contact-form-textarea::-webkit-scrollbar-thumb {
-  background-color: var(--solid-interactive-components);
+  background-color: var(--solid-h-c-text-secondary);
   border-radius: 5px;
 }
 
 .contact-form-textarea::-webkit-scrollbar-track {
-  background-color: var(--solid-h-c-text-secondary);
+  background-color: var(--solid-interactive-components);
   border-radius: 9999px;
 }
 
@@ -100,6 +100,7 @@ body.light-theme .contact-form-container {
   left: 15px;
   top: 18px;
   padding: 0 5px;
+  transition: 0.3s ease-in-out;
 }
 
 .contact-form-input.focus ~ .contact-form-label,
@@ -112,7 +113,14 @@ body.light-theme .contact-form-container {
 
 .github-icon,
 .linkedin-text {
-  fill: var(--high-contrast-text-primary)
+  fill: var(--high-contrast-text-primary);
+
+  transition: all 0.2s ease-in;
+}
+
+.github-icon:hover,
+.social-icon:hover .linkedin-text {
+  fill: var(--solid-h-c-text-primary);
 }
 
 .linkedin-border {
@@ -132,9 +140,9 @@ body.light-theme .contact-form-container {
   width: fit-content;
   font-size: 1.1rem;
   padding: 0.75rem 1.25rem;
-  background-color: var(--solid-color);
-  color: var(--high-contrast-text-primary);
-  border: 1px solid var(--borders-and-separators);
+  background-color: var(--interactive-components);
+  color: var(--high-contrast-text-secondary);
+  border: 1px solid var(--borders-and-separators-selected);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease-in;
@@ -328,7 +336,7 @@ body.light-theme .contact-form-container {
 }
 
 .email-error {
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 30%;
   font-size: 2.25rem;
@@ -479,5 +487,15 @@ body.light-theme .contact-form-container {
 
   .contact-form {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .loading-text {
+    font-size: 1.5rem;
+  }
+
+  .loader {
+    left: 30%;
   }
 }

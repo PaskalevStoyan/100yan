@@ -86,8 +86,21 @@ body.light-theme {
 
 
 
-html {
+body {
   scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--solid-h-c-text-secondary);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--solid-interactive-components);
 }
 
 .separator {

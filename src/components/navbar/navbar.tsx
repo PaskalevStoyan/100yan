@@ -29,13 +29,9 @@ export const Navbar = (props: NavbarProps) => {
         let scrollHeight =
           getSection.getBoundingClientRect().top + window.scrollY;
 
-        if (getSection.id === "Projects") {
-          scrollHeight -= 400;
-        } else if (getSection.id === "Contacts") {
-          scrollHeight -= 200;
-        } else {
-          scrollHeight = 0;
-        }
+        if (getSection.id === "Projects") scrollHeight -= 400;
+        else if (getSection.id === "Contacts") scrollHeight -= 200;
+        else scrollHeight = 0;
 
         window.scrollTo({
           top: scrollHeight,

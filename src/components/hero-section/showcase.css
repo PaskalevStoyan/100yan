@@ -69,13 +69,12 @@
   backdrop-filter: blur(10px);
   border: 1px solid var(--borders-and-separators);
 
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 10px;
+  border-radius: var(--m-border-radius);
 
   max-width: 1000px;
   padding-bottom: 2rem;
 
- transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .tabs-container {
@@ -92,23 +91,20 @@
   user-select: none;
   transition: all 0.35s ease-out;
   font-size: var(--xs-typography);
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 10px;
+  border-radius: var(--s-border-radius);
+
+  border-color: var(--borders-and-separators-selected);
+
+  transition: all 0.5s ease-out;
+}
+
+.tab:not(.selected):hover {
+  background-color: var(--borders-and-separators);
 }
 
 .tab.selected {
   background-color: var(--borders-and-separators);
   border: 1px solid var(--borders-and-separators-selected);
-
-}
-
-.tab:not(.selected):hover {
-  background-color: #5f606a42;
-  color: var(--high-contrast-text-primary);
-  border-radius: 0;
-
-  border-top-right-radius: 30px;
-  border-bottom-left-radius: 10px;
 }
 
 .tabstrip-content {
@@ -152,7 +148,6 @@
   100% {
     opacity: 1;
     backdrop-filter: blur(0px);
-
   }
 }
 
@@ -230,14 +225,11 @@
   .showcase-big-heading {
     font-size: var(--m-typography);
     height: 115px;
-    
   }
 
   .name-text {
     font-size: var(--x-typography);
   }
-
-
 
   .typing-demo {
     width: 16.2ch;
@@ -261,7 +253,7 @@
   .showcase {
     padding: 0 1rem;
   }
-  
+
   .tabs-container {
     padding: 1rem 0rem;
   }
@@ -275,7 +267,7 @@
   }
 
   .tab.selected::after {
-    content: '';
+    content: "";
     position: absolute;
     visibility: visible;
     opacity: 1;
@@ -293,7 +285,7 @@
   }
 
   .tab::after {
-    content: '';
+    content: "";
     position: absolute;
     visibility: hidden;
     opacity: 0;

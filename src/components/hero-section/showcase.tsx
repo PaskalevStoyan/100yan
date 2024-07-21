@@ -8,34 +8,38 @@ export const Showcase = (props: any) => {
 
   const handleTabClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
-    const tab = target.closest(".tab");
+    const clickedTab = target.closest(".tab");
     const tabs = target.closest(".tabs-container");
 
-    if (!tab || !tabs) return;
+    if (!clickedTab || !tabs) return;
 
-    const index = Array.from(tabs.children).indexOf(tab);
+    const index = Array.from(tabs.children).indexOf(clickedTab);
 
-    setTabsInfo((prev) => {
-      return prev.map((tab, i) => {
-        if (i === index) {
-          return { ...tab, selected: true };
-        }
-        return { ...tab, selected: false };
+    if (tab !== index) {
+      setTabsInfo((prev) => {
+        return prev.map((tab, i) => {
+          if (i === index) {
+            return { ...tab, selected: true };
+          }
+          return { ...tab, selected: false };
+        });
       });
-    });
 
-    const content = document.querySelector(".tabstrip-content") as HTMLElement;
-    content.classList.add("content-fade-out");
+      const content = document.querySelector(
+        ".tabstrip-content"
+      ) as HTMLElement;
+      content.classList.add("content-fade-out");
 
-    setTimeout(() => {
-      content.classList.remove("content-fade-out");
-      content.classList.add("content-fade-in");
-      setTab(index);
-    }, 600);
+      setTimeout(() => {
+        content.classList.remove("content-fade-out");
+        content.classList.add("content-fade-in");
+        setTab(index);
+      }, 600);
 
-    setTimeout(() => {
-      content.classList.remove("content-fade-in");
-    }, 800);
+      setTimeout(() => {
+        content.classList.remove("content-fade-in");
+      }, 800);
+    }
   };
 
   const getTabId = (text: string) =>
@@ -44,7 +48,9 @@ export const Showcase = (props: any) => {
   return (
     <div className="showcase" id="About-Me">
       <div className="showcase-introduction">
-        <h2 className="showcase-mid-headings" aria-label="Hello Wanderer" >Hello Wanderer!</h2>
+        <h2 className="showcase-mid-headings" aria-label="Hello Wanderer">
+          Hello Wanderer!
+        </h2>
         <h1 className=" typewriter typing-demo showcase-big-heading">
           My name is{" "}
           <span className="name-text">

@@ -60,8 +60,7 @@ export const sendEmail = (
   setForm: React.Dispatch<React.SetStateAction<Form>>,
   setDisableButton: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
-  const { findAllInputs, findTextArea, findContactFormContainer } =
-  getInputs();
+  const { findAllInputs, findTextArea, findContactFormContainer } = getInputs();
 
   emailjs
     .sendForm("service_huk6p4f", "template_45j3g2s", formRef.current as any, {
@@ -75,8 +74,6 @@ export const sendEmail = (
           subject: "",
           message: "",
         });
-
-
 
         findTextArea?.classList.remove("focus");
 
