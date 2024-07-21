@@ -15,6 +15,8 @@ export const Navbar = (props: NavbarProps) => {
   const [canSelectNavLink, setCanSelectNavLink] = React.useState(false);
   const navbar = document.querySelector(".navbar");
 
+  const [waitTime, setWaitTime] = React.useState(false);
+
   const [links, setLinks] = React.useState(linksArray);
 
   const handleOnClick = (event: any) => {
@@ -58,13 +60,19 @@ export const Navbar = (props: NavbarProps) => {
 
       if (canSelectNavLink) {
         navbar?.classList.remove("show-expand-text");
+        setWaitTime(!waitTime);
 
         setTimeout(() => {
+          setWaitTime(false);
           setCanSelectNavLink(!canSelectNavLink);
         }, 600);
       } else {
+        setWaitTime(!waitTime);
+
         setTimeout(() => {
+          setWaitTime(false);
           setCanSelectNavLink(!canSelectNavLink);
+
           navbar?.classList.add("show-expand-text");
         }, 600);
       }
@@ -90,9 +98,12 @@ export const Navbar = (props: NavbarProps) => {
       onClick={handleOnClick}
       className={`${shouldShow ? "show" : "hide"} navbar`}
     >
-      <span className="expand-icon">
-        <ExpandIcon className={`${canSelectNavLink ? "active" : ""}`} />
-      </span>
+      <button disabled={waitTime} className="expand-icon">
+        <ExpandIcon
+          disable={waitTime}
+          className={`${canSelectNavLink ? "active" : ""}`}
+        />
+      </button>
 
       {links.map((link, index) => {
         const logo = link.text === "logo";

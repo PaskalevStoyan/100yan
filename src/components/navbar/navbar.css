@@ -153,6 +153,8 @@
 
   .expand-icon {
     position: absolute;
+    background: none;
+    border: none;
     display: block;
     top: -3px;
     left: -18px;
